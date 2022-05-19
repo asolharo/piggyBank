@@ -7,7 +7,7 @@ const app = express();
 // add the middleware to accept json HTTP requests
 app.use(express.json());
 
-// test endpoint
+// test route endpoint
 app.use('/ping', testRouter)
 
 app.listen(process.env.PORT, () => {

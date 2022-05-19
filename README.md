@@ -20,7 +20,7 @@ Application to learn about financial health and budgeting
 # Collaborators
 
 {Provide a list of everyone on your team}
-
+* Federico Pregnolato
 # Useful Websites
 
 {Make a list of websites that you found helpful in this project}

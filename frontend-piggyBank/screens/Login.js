@@ -1,8 +1,10 @@
-import { Text } from 'react-native';
+import { Text, View, SafeAreaView, TextInput } from 'react-native';
 
 const Login = () => {
   return (
-   <Text>Login</Text>
+    <SafeAreaView>
+      <Text>Login</Text>
+    </SafeAreaView>
   )
 }
 

@@ -2,7 +2,9 @@ import { Text } from 'react-native';
 
 const Dashboard = () => {
   return (
-    <Text>Dashboard</Text>
+    <SafeAreaView>
+      <Text>Dashboard</Text>
+    </SafeAreaView>
   )
 }
 

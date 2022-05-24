@@ -1,10 +1,9 @@
 import { Text, View, SafeAreaView, TextInput } from 'react-native';
+import AppBar from '../components/AppBar';
 
 const Login = () => {
   return (
-    <SafeAreaView>
-      <Text>Login</Text>
-    </SafeAreaView>
+    <Text>Login</Text>
   )
 }
 

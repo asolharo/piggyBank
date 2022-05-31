@@ -1,10 +1,11 @@
 import React from 'react';
-import { Text, View, TextInput, Button, StyleSheet } from 'react-native';
+import { Text, View, TextInput, Button, StyleSheet,TouchableOpacity } from 'react-native';
 
 const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+
       <View>
         <Text>Username</Text>
         <TextInput
@@ -24,16 +25,15 @@ const LoginScreen = ({ navigation }) => {
           secureTextEntry
         />
       </View>
-      <Button
-        title="Log in"
-        onPress={() => navigation.navigate('Home')}
-      />
+      <TouchableOpacity style={styles.btn1}>
+        <Text style={styles.btn1Text}>Log in</Text>
+      </TouchableOpacity>
+
       <View style={{flexDirection: 'row'}}>
         <Text>Don't have an account? </Text>
-        <Button
-          title="Sign Up"
-          onPress={() => navigation.navigate('CreateAccount')}
-        />
+        <TouchableOpacity style={{height:50}}>
+          <Text style={styles.btn2}>Sign Up</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -56,6 +56,24 @@ const styles = StyleSheet.create({
   },
   fields: {
     marginTop: 20,
+  },
+  btn1: {
+    margin: 30,
+    marginTop:100,
+    backgroundColor: '#1866a3',
+    width: 300,
+    paddingTop:10,
+    paddingBottom:10,
+    borderRadius:30,
+  },
+  btn1Text:{
+    fontSize:20,
+    color:'white',
+    alignSelf:'center',
+  },
+  btn2: {
+    fontSize:14,
+    color:'teal'
   }
 });
 

@@ -4,6 +4,7 @@ import { useFonts } from 'expo-font';
 import Login from './screens/Login';
 import Dashboard from './screens/Dashboard';
 import AppBar from './components/AppBar';
+import Registration from './components/Registration';
 
 // Initialize the navigation object
 const Stack = createStackNavigator();
@@ -17,6 +18,13 @@ const App = () => {
         <Stack.Screen 
           name='Login'
           component={Login}
+          options={{
+            header: props => <AppBar {...props} />
+          }}
+        />
+        <Stack.Screen 
+          name='Registration'
+          component={Registration}
           options={{
             header: props => <AppBar {...props} />
           }}

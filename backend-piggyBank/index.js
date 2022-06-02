@@ -65,7 +65,7 @@ mongoose.connect(MONGODB_URI)
   .then(result => {
     app.listen(PORT);
     console.log(`Successful connection to database`);
-    console.log(`Server running on port ${process.env.PORT}`);
+    console.log(`Server running on port ${PORT}`);
   })
   .catch(err => {
     console.log(err);

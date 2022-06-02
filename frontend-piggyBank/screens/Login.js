@@ -7,6 +7,9 @@ const LoginScreen = ({ navigation }) => {
     <ScrollView
       style={{flex: 1, backgroundColor:'#ffffff'}}
       showsVerticalScrollIndicator={false}>
+        {/* Status Bar */}
+        <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "blue"/>
+
         {/* Header */}
         <ImageBackground
           source={require('../assets/images/onboarding_1.png')}
@@ -122,5 +125,5 @@ const styles = StyleSheet.create({
   btn2: {
     fontSize:14,
     color:'teal'
-  }
+  },
 });

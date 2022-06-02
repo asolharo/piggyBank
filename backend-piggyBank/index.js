@@ -8,6 +8,12 @@ const session = require('express-session');
 const MongoDB = require('connect-mongodb-session')(session);
 const mongoose = require('mongoose');
 
+// create instance of express server
+const app = express();
+
+// Swagger API requires
+const swaggerUI = require("swagger-ui-express");
+const swaggerJsdoc = require("swagger-jsdoc");
 
 // routes
 // const testRouter = require('./controllers/test');
@@ -23,10 +29,39 @@ const db = new MongoDB({
   user: []
 });
 
-// create instance of express server
-const app = express();
-
 //Swagger set up to test database endpoints
+const options = {
+  definition: {
+    openapi: "3.0.1",
+    info: {
+      title: "Piggy Banking",
+      version: "1.0.0",
+      description: "An educational tool to teach better budgeting"
+    },
+    servers: [{
+      url: process.env.HOST_URL
+    }],
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT',
+          name: 'Authorization',
+        }
+      }
+    },
+    security: [{
+      bearerAuth: []
+    }],
+  },
+  apis: ["./swagger/*.js"]
+}
+// This tells Swagger-jsdoc where/how to parse the comments
+const specs = swaggerJsdoc(options);
+//specify specs to build UI & view api docs
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
+
 
 // allow requests
 app.use((req, res, next) => {

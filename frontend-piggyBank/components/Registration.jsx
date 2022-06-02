@@ -57,8 +57,9 @@ const Registration = () => {
   };
   
   const initialValues = {
-    username: "",
+    fullname: "",
     password: "",
+    email: ""
   };
   
   return (

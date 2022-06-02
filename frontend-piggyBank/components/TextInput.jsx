@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     borderWidth: 1,
     borderColor: '#d73a4a',
-    borderRadius: 5,
+    borderRadius: 15,
   }
 });
 

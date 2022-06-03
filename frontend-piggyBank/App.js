@@ -4,12 +4,16 @@ import { useFonts } from 'expo-font';
 import Login from './screens/Login';
 import Dashboard from './screens/Dashboard';
 import AppBar from './components/AppBar';
+
 import OnBoardingScreen from './screens/OnBoardingScreen';
 import { StatusBar, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS } from './constants';
 import { useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import Registration from './components/Registration';
+
 
 // Initialize the navigation object
 const Stack = createStackNavigator();
@@ -51,10 +55,23 @@ const App = () => {
               <Stack.Screen 
                 name='Login'
                 component={Login}
+                options={{
+                  header: props => <AppBar {...props} />
+                }}
               />
               <Stack.Screen 
                 name='Dashboard'
                 component={Dashboard}
+                options={{
+                  header: props => <AppBar {...props} />
+                }}
+              />
+              <Stack.Screen 
+                name='Registration'
+                component={Registration}
+                options={{
+                  header: props => <AppBar {...props} />
+                }}
               />
               {isAppFirstLaunch && <Stack.Screen 
                 name='OnBoardingScreen'

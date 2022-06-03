@@ -84,7 +84,7 @@ app.use(bodyParser.json());
 app.use('/user', userRoute);
 // test route endpoint
 // app.use('/ping', testRouter)
-app.use((err, req, res, next) => {
+app.use((error, req, res, next) => {
   console.log(error);
   const message = error.statusCode || 500;
   const data = error.data;

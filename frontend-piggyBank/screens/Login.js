@@ -1,7 +1,9 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Text, View, TextInput, Dimensions, StyleSheet,TouchableOpacity, ScrollView, ImageBackground, StatusBar } from 'react-native';
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = () => {
+  const navigation = useNavigation()
   return (
     // Container
     <ScrollView
@@ -52,7 +54,7 @@ const LoginScreen = ({ navigation }) => {
 
                 <View style={{flexDirection: 'row'}}>
                   <Text>Don't have an account? </Text>
-                  <TouchableOpacity style={{height:50}}>
+                  <TouchableOpacity style={{height:50}} onPress={() => navigation.navigate('Registration')}>
                     <Text style={styles.btn2}>Sign Up</Text>
                   </TouchableOpacity>
                 </View>

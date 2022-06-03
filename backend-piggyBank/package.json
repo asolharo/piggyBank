@@ -22,7 +22,9 @@
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^3.1.2",
     "mongoose": "^6.3.3",
-    "mongoose-unique-validator": "^3.0.0"
+    "mongoose-unique-validator": "^3.0.0",
+    "swagger-jsdoc": "^6.2.1",
+    "swagger-ui-express": "^4.4.0"
   },
   "devDependencies": {
     "jest": "^28.1.0",

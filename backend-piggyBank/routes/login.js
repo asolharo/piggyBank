@@ -11,7 +11,9 @@ const isAuth = require('../middleware/auth');
 
 const User = require('../models/user');
 
+
 // POST add new user
+
 router.post('/add-user',
   [
     body('email')

@@ -2,10 +2,8 @@ import { View, Text, StyleSheet, Pressable } from 'react-native'
 import React from 'react'
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import FormikTextInput from './FormikTextInput';
-import { Link, useNavigation } from '@react-navigation/native';
-
-
+import FormikTextInput from '../components/FormikTextInput';
+import { useNavigation } from '@react-navigation/native';
 
 const Registration = () => {
 
@@ -90,7 +88,7 @@ const Registration = () => {
         )}
       </Formik>
       <View style={{flexDirection: "row", justifyContent: 'center' }}>
-        <Text>Do you alredy have an account?</Text>
+        <Text>Do you already have an account?</Text>
         <Pressable onPress={() => navigation.navigate('Login')}>
           <Text style={styles.link}>Login</Text>
         </Pressable>

@@ -1,131 +1,144 @@
-import { useNavigation } from '@react-navigation/native';
-import React from 'react';
-import { Text, View, TextInput, Dimensions, StyleSheet,TouchableOpacity, ScrollView, ImageBackground, StatusBar } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
+import {
+  Text,
+  View,
+  Dimensions,
+  StyleSheet,
+  Pressable,
+  ScrollView,
+  ImageBackground,
+  StatusBar,
+} from "react-native";
+import React from "react";
+import { Formik } from "formik";
+import * as yup from "yup";
+import FormikTextInput from "../components/FormikTextInput";
+
+const initialValues = {
+  password: "",
+  email: "",
+};
+
+const onSubmit = (values) => {
+  console.log(values);
+};
+
+const validationSchema = yup.object().shape({
+  email: yup
+    .string()
+    .email("Email is incorrect")
+    .required("Email is required"),
+  password: yup
+    .string()
+    .min(3, "Password is too short")
+    .required("Password is required"),
+});
 
 const LoginScreen = () => {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
   return (
     // Container
     <ScrollView
-      style={{flex: 1, backgroundColor:'#ffffff'}}
-      showsVerticalScrollIndicator={false}>
-        {/* Status Bar */}
-        <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "blue"/>
+      style={{ flex: 1, backgroundColor: "#ffffff" }}
+      showsVerticalScrollIndicator={false}
+    >
+      {/* Status Bar */}
+      <StatusBar
+        barStyle="dark-content"
+        hidden={false}
+        backgroundColor="blue"
+      />
 
-        {/* Header */}
-        <ImageBackground
-          source={require('../assets/images/onboarding_1.png')}
-          style={{
-            height: Dimensions.get('window').height / 2.5,
-          }}>
-            <View style={styles.appNameBox}>
-              <Text style={styles.appName}>Piggy Bank</Text>
-            </View>
-          </ImageBackground>
-
-        {/* Middle */}
-        <View style={styles.middle}>
-          <View style={{padding: 40}}>
-            <Text style={{color:'black', fontSize: 34}}>Welcome</Text>
-
-            <View style={styles.container}>
-              <View style={{marginTop: 50}}>
-                  <Text>Username</Text>
-                  <TextInput
-                    style={styles.input}
-                    //onChangeText={(text) => onChangeEmail(text)}
-                    placeholder="Enter your username"
-                    placeholderTextColor="lightgray"
-                  />
-                </View>
-                <View style={styles.fields}>
-                  <Text>Password</Text>
-                  <TextInput
-                    style={styles.input}
-                    //onChangeText={(text) => onChangePassword(text)}
-                    placeholder="Enter your password"
-                    placeholderTextColor="lightgray"
-                    secureTextEntry
-                  />
-                </View>
-                <TouchableOpacity style={styles.btn1}>
-                  <Text style={styles.btn1Text}>Log in</Text>
-                </TouchableOpacity>
-
-                <View style={{flexDirection: 'row'}}>
-                  <Text>Don't have an account? </Text>
-                  <TouchableOpacity style={{height:50}} onPress={() => navigation.navigate('Registration')}>
-                    <Text style={styles.btn2}>Sign Up</Text>
-                  </TouchableOpacity>
-                </View>
-            </View>
-          </View>
+      {/* Header */}
+      <ImageBackground
+        source={require("../assets/images/onboarding_1.png")}
+        style={{
+          height: Dimensions.get("window").height / 2.5,
+        }}
+      >
+        <View style={styles.appNameBox}>
+          <Text style={styles.appName}>Piggy Bank</Text>
         </View>
+      </ImageBackground>
+
+      {/* Middle */}
+      <View style={styles.container}>
+        <Text style={styles.title}>Login</Text>
+
+        <Formik
+          initialValues={initialValues}
+          onSubmit={onSubmit}
+          validationSchema={validationSchema}
+        >
+          {({ handleSubmit }) => (
+            <View>
+              <FormikTextInput name="email" placeholder="Email" />
+              <FormikTextInput
+                name="password"
+                placeholder="Password"
+                secureTextEntry={true}
+              />
+              <Pressable onPress={handleSubmit} style={styles.btn}>
+                <Text style={styles.btnText}>Login</Text>
+              </Pressable>
+            </View>
+          )}
+        </Formik>
+        <View style={{ flexDirection: "row", justifyContent: "center" }}>
+          <Text>Not a member?</Text>
+          <Pressable onPress={() => navigation.navigate("Registration")}>
+            <Text style={styles.link}>Sign up</Text>
+          </Pressable>
+        </View>
+      </View>
     </ScrollView>
   );
 };
 
 export default LoginScreen;
 
-
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: 30,
   },
 
   appNameBox: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#1967a3',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#1967a3",
   },
 
   appName: {
-    color: 'white',
+    color: "white",
     fontSize: 40,
-    fontWeight: 'bold',
-    textTransform: 'uppercase',
+    fontWeight: "bold",
+    textTransform: "uppercase",
     padding: 15,
   },
 
-  middle: {
-    flex: 1.5,
-    backgroundColor:'white',
-    bottom: 50,
+  title: {
+    fontSize: 30,
+    paddingBottom: 10,
+    paddingTop: 20,
   },
-
-  input: {
-    height: 40,
-    width: 300,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginTop: 0,
-    paddingLeft: 8,
-    borderRadius: 30,
+  btn: {
+    backgroundColor: "#2245C4",
+    padding: 15,
+    margin: 15,
+    borderRadius: 15,
   },
-
-  fields: {
-    marginTop: 20,
+  btnText: {
+    color: "#fff",
+    textAlign: "center",
+    fontSize: 18,
   },
-
-  btn1: {
-    margin: 30,
-    marginTop:70,
-    backgroundColor: '#1866a3',
-    width: 300,
-    paddingTop:10,
-    paddingBottom:10,
-    borderRadius:30,
+  mb30: {
+    marginBottom: 30,
   },
-  btn1Text:{
-    fontSize:20,
-    color:'white',
-    alignSelf:'center',
-  },
-  btn2: {
-    fontSize:14,
-    color:'teal'
+  link: {
+    marginLeft: 5,
+    color: "#1248a1",
+    textDecorationLine: "underline",
   },
 });

@@ -12,7 +12,7 @@ import { COLORS } from './constants';
 import { useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import Registration from './components/Registration';
+import Registration from './screens/Registration';
 
 
 // Initialize the navigation object

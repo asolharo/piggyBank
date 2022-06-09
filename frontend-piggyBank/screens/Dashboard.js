@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 const Dashboard = ({ route, navigation }) => {
   const userId  = route.params.userId
   const baseUrl = 'http://localhost:3000'
-  const [userInfo, setUserInfo] = useState({})
+  const [userInfo, setUserInfo] = useState()
 
   React.useEffect(() => {
     const getUserInfo = async() => {
@@ -27,6 +27,10 @@ const Dashboard = ({ route, navigation }) => {
 
     getUserInfo()
   }, [])
+
+  if (!userInfo) {
+    return <View></View>
+  }
   
   return (
     <View>

@@ -4,25 +4,20 @@ const Schema = mongoose.Schema;
 
 // User Schema
 const userSchema = new Schema({
-  username: {
-    type: String,
-    required: true
-  },
   password: {
     type: String,
     required: true
   },
-  firstName: {
-    type: String,
-    required: true
-  },
-  lastName: {
+  fullname: {
     type: String,
     required: true
   },
   email: {
     type: String,
     required: true
+  },
+  accountBalance: {
+    type: mongoose.Types.Decimal128
   }
 });
 

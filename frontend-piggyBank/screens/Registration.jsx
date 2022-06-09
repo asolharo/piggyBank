@@ -5,7 +5,9 @@ import * as yup from 'yup';
 import FormikTextInput from '../components/FormikTextInput';
 import { useNavigation } from '@react-navigation/native';
 
+
 const Registration = () => {
+  const baseUrl = 'http://localhost:3000'
 
   const validationSchema = yup.object().shape({
     email: yup
@@ -50,8 +52,24 @@ const Registration = () => {
   
   const navigation = useNavigation()
   
-  const onSubmit = (values) => {
+  const onSubmit = async (values) => {
     console.log(values);
+    console.log(`${baseUrl}/user/add-user`);
+    try {
+      const res = await fetch(`${baseUrl}/user/add-user`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(values)
+      })
+      const json = await res.json()
+      console.log(json);
+      navigation.navigate('Login')
+    } catch (err) {
+      console.log(err);
+    }
   };
   
   const initialValues = {

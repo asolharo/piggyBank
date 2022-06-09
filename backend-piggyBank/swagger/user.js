@@ -7,24 +7,16 @@
  *    User:
  *      type: object
  *      required:
- *        -firstName
- *        -lastName
+ *        -fullname
  *        -email
- *        -username
  *        -password
  *      properties:
- *          firstName:
+ *          fullname:
  *              type: string
- *              desc: User's First Name
- *          lastName:
- *              type: string
- *              desc: User's Last Name
+ *              desc: User's full name
  *          email:
  *              type: string
  *              desc: User's email address
- *          username:
- *              type: string
- *              desc: User's username to login
  *          password:
  *              type: string
  *              desc: Password

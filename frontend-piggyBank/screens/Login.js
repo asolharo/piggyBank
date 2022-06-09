@@ -14,28 +14,50 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import FormikTextInput from "../components/FormikTextInput";
 
-const initialValues = {
-  password: "",
-  email: "",
-};
-
-const onSubmit = (values) => {
-  console.log(values);
-};
-
-const validationSchema = yup.object().shape({
-  email: yup
-    .string()
-    .email("Email is incorrect")
-    .required("Email is required"),
-  password: yup
-    .string()
-    .min(3, "Password is too short")
-    .required("Password is required"),
-});
-
 const LoginScreen = () => {
-  const navigation = useNavigation();
+  const initialValues = {
+    password: "",
+    email: "",
+  };
+  
+  const baseUrl = 'http://localhost:3000'
+  const navigation = useNavigation()
+  
+  const onSubmit = async (values) => {
+    try {
+      const res = await fetch(`${baseUrl}/user/login`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(values)
+      })
+      const responseJson = await res.json()
+      //console.log(responseJson);
+      if (res.status === 200 && responseJson.token){
+        navigation.navigate('Dashboard', { 
+          userId: responseJson.userId 
+        })
+      } else {
+        console.log("Can't login");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  
+  const validationSchema = yup.object().shape({
+    email: yup
+      .string()
+      .email("Email is incorrect")
+      .required("Email is required"),
+    password: yup
+      .string()
+      .min(3, "Password is too short")
+      .required("Password is required"),
+  });
+
   return (
     // Container
     <ScrollView

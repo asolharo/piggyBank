@@ -5,12 +5,8 @@ const {
 
 const router = express.Router();
 const loginController = require('../controllers/login');
-
-
 const isAuth = require('../middleware/auth');
-
 const User = require('../models/user');
-
 
 // POST add new user
 
@@ -36,18 +32,10 @@ router.post('/add-user',
     .isLength({
       min: 5
     }),
-    body('firstName')
+    body('fullname')
     .trim()
     .not()
     .isEmpty(),
-    body('lastName')
-    .trim()
-    .not()
-    .isEmpty(),
-    body('username')
-    .trim()
-    .not()
-    .isEmpty()
   ],
   loginController.postAddUser);
 
@@ -77,18 +65,11 @@ router.put('/edit-user/:userId', isAuth,
     .isLength({
       min: 5
     }),
-    body('firstName')
+    body('fullName')
     .trim()
     .not()
     .isEmpty(),
-    body('lastName')
-    .trim()
-    .not()
-    .isEmpty(),
-    body('username')
-    .trim()
-    .not()
-    .isEmpty()
+
   ],
   loginController.putUpdateUser);
 

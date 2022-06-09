@@ -17,21 +17,20 @@ exports.postAddUser = (req, res, next) => {
     error.data = errors.array();
     throw error;
   }
-
-  const firstName = req.body.firstName;
-  const lastName = req.body.lastName;
+  console.log(req.body);
+  const fullName = req.body.fullname;
   const email = req.body.email;
-  const username = req.body.username;
   const password = req.body.password;
+  const accountBalance = 1000
+
   bcrypt
     .hash(password, 12)
     .then(hashedPw => {
       const user = new User({
-        firstName: firstName,
-        lastName: lastName,
+        fullname: fullName,
         email: email,
-        username: username,
-        password: hashedPw
+        password: hashedPw,
+        accountBalance: accountBalance
       });
       return user.save();
 
@@ -55,6 +54,7 @@ exports.postAddUser = (req, res, next) => {
 
 // GET user by ID
 exports.getUserById = (req, res, next) => {
+  console.log(req.params);
   User.findById(req.params.userId)
     .then(user => {
       res.send(user);
@@ -203,9 +203,9 @@ exports.login = (req, res, next) => {
       }, process.env.SECRET_STRING, {
         expiresIn: '1h'
       });
-
+      
       res.header('Authorization', 'Bearer ' + token);
-
+      
       res.status(200).json({
         token: token,
         userId: loadedUser._id.toString()

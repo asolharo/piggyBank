@@ -1,5 +1,9 @@
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet, Image } from 'react-native'
 import React, { useState } from 'react'
+import { assets } from '../constants'
+import Balance from '../components/Balance'
+import LearningPath from '../components/LearningPath'
+
 
 const Dashboard = ({ route, navigation }) => {
   const userId  = route.params.userId
@@ -33,13 +37,34 @@ const Dashboard = ({ route, navigation }) => {
   }
   
   return (
-    <View>
-      <Text>Dashboard</Text>
-      <Text>Welcome, { userInfo.fullname }</Text>
-      <Text>{ userInfo.email }</Text>
-      <Text>Balance: ${ userInfo.accountBalance.$numberDecimal }</Text>
+    <View style={styles.container}>
+      <View style={styles.welcomeContainer}>
+        <Text style={styles.welcome}>Hey {userInfo.fullname}</Text>
+        <Image source={assets.avatar} style={{ resizeMode: "contain", width: 70, height: 70}} />
+      </View>
+      <Text style={{ marginTop: -10 }}>Welcome back!</Text>
+      <Balance balance={userInfo.accountBalance.$numberDecimal} setBalance={setUserInfo} />
+      <Text style={{ marginTop: 30, fontSize: 20 }}>Learning Paths</Text>
+      <View style={{marginTop: 10}}>
+        <LearningPath title="Budget"/>
+        <LearningPath title="Financial Planning"/>
+      </View>
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container:{
+    padding: 20,
+  },
+  welcome:{
+    fontSize: 30,
+  },
+  welcomeContainer: {
+    flexDirection: "row",
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  }
+})
 
 export default Dashboard

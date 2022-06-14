@@ -94,10 +94,11 @@ const LoginScreen = () => {
         >
           {({ handleSubmit }) => (
             <View>
-              <FormikTextInput name="email" placeholder="Email" />
+              <FormikTextInput name="email" placeholder="Email" placeholderTextColor= "#000"/>
               <FormikTextInput
                 name="password"
                 placeholder="Password"
+                placeholderTextColor= "#000"
                 secureTextEntry={true}
               />
               <Pressable onPress={handleSubmit} style={styles.btn}>

@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Image } from 'react-native'
 import React, { useState } from 'react'
-import { assets } from '../constants'
+import { assets, SIZES } from '../constants'
 import Balance from '../components/Balance'
 import LearningPath from '../components/LearningPath'
 
@@ -55,10 +55,10 @@ const Dashboard = ({ route, navigation }) => {
 
 const styles = StyleSheet.create({
   container:{
-    padding: 20,
+    padding: SIZES.large,
   },
   welcome:{
-    fontSize: 30,
+    fontSize: SIZES.superLarge,
   },
   welcomeContainer: {
     flexDirection: "row",

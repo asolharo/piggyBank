@@ -46,8 +46,8 @@ const Dashboard = ({ route, navigation }) => {
           <Balance balance={userInfo.accountBalance.$numberDecimal} setBalance={setUserInfo} />
           <Text style={{ marginTop: 30, fontSize: 20 }}>Learning Paths</Text>
           <View style={{marginTop: 10}}>
-            <LearningPath title="Budget"/>
-            <LearningPath title="Financial Planning"/>
+            <LearningPath title="Budget" path="Budget"/>
+            <LearningPath title="Financial Planning" path="Forecasting"/>
           </View>
       </View>
     </>

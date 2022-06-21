@@ -1,10 +1,12 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Icon } from 'react-native-elements'
+import { useNavigation } from '@react-navigation/native'
 
-const LearningPath = ({ title }) => {
+const LearningPath = ({ title, path }) => {
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={() => navigation.navigate(path)}>
       <View style={styles.body}>
         <Text style={{ fontSize: 16 }}>{title}</Text>
         <Icon

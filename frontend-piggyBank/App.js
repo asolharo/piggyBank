@@ -14,10 +14,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Registration from './screens/Registration';
 
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 // Initialize the navigation object
 const Stack = createStackNavigator();
-
+const Drawer = createDrawerNavigator();
 
 const App = () => {
   const [isAppFirstLaunch, setIsAppFirstLaunch] = useState(null)
@@ -47,38 +48,25 @@ const App = () => {
 
         </SafeAreaView>
           <NavigationContainer>
-            <Stack.Navigator
-              initialRouteName="OnBoardingScreen"
+            <Drawer.Navigator
+              initialRouteName="Login"
               screenOptions={{
                 headerShown: false
               }}>
-              <Stack.Screen 
+              <Drawer.Screen 
                 name='Login'
                 component={Login}
-                options={{
-                  header: props => <AppBar {...props} />
-                }}
               />
-              <Stack.Screen 
+              <Drawer.Screen 
                 name='Dashboard'
                 component={Dashboard}
-                options={{
-                  header: props => <AppBar {...props} />
-                }}
               />
-              <Stack.Screen 
+              <Drawer.Screen 
                 name='Registration'
                 component={Registration}
-                options={{
-                  header: props => <AppBar {...props} />
-                }}
               />
-              {isAppFirstLaunch && <Stack.Screen 
-                name='OnBoardingScreen'
-                component={OnBoardingScreen}
-              />}
               
-            </Stack.Navigator>
+            </Drawer.Navigator>
           </NavigationContainer>
         </>
       )

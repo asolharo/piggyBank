@@ -4,6 +4,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import Settings from './Settings'
 import Dashboard from './Dashboard';
 import Forecasting from './ForecastingScreen';
+import SavingsCalcScreen from './SavingsCalcScreen';
 
 // Initialize the navigation object
 const Drawer = createDrawerNavigator();
@@ -15,6 +16,7 @@ const Root = () => {
         <Drawer.Screen name="Dashboard" component={Dashboard} />
         <Drawer.Screen name="Settings" component={Settings} />
         <Drawer.Screen name='Forecasting' component={Forecasting} />
+        <Drawer.Screen name='SavingsCalcultor' component={SavingsCalcScreen} />
     </Drawer.Navigator>
   )
 }

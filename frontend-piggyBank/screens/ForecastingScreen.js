@@ -12,15 +12,18 @@ import Screen from "../components/Screen";
 const forecastMenu = [
   {
     title: "Savings Goal",
-    targetScreen: './SavingsCalcScreen'
+    targetScreen: './SavingsCalcScreen',
+    path: 'SavingsCalcultor'
   },
   {
     title: "Interest Calculator",
-    targetScreen: './SavingsCalcScreen'
+    targetScreen: './SavingsCalcScreen',
+    path: 'InterestCalcultor'
   },
   {
     title: "Debt Pay-off",
-    targetScreen: './SavingsCalcScreen'
+    targetScreen: './SavingsCalcScreen',
+    path: 'DebtCalcultor'
   },
 ];
 
@@ -33,6 +36,7 @@ function ForecastingScreen() {
       renderItem={({ item }) => (
         <PathBar
         title={item.title}
+        path={item.path}
         />
       )}
       >

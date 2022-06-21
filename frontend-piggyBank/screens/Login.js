@@ -34,10 +34,10 @@ const LoginScreen = () => {
         body: JSON.stringify(values)
       })
       const responseJson = await res.json()
-      //console.log(responseJson);
       if (res.status === 200 && responseJson.token){
-        navigation.navigate('Dashboard', { 
-          userId: responseJson.userId 
+        navigation.navigate('Root', { 
+          screen: 'Dashboard',
+          params: { userId: responseJson.userId } 
         })
       } else {
         console.log("Can't login");

@@ -15,6 +15,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Registration from './screens/Registration';
 
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import Root from './screens/Root';
 
 // Initialize the navigation object
 const Stack = createStackNavigator();
@@ -48,25 +49,25 @@ const App = () => {
 
         </SafeAreaView>
           <NavigationContainer>
-            <Drawer.Navigator
+            <Stack.Navigator
               initialRouteName="Login"
               screenOptions={{
                 headerShown: false
               }}>
-              <Drawer.Screen 
+              <Stack.Screen 
                 name='Login'
                 component={Login}
               />
-              <Drawer.Screen 
-                name='Dashboard'
-                component={Dashboard}
+              <Stack.Screen 
+                name='Root'
+                component={Root}
               />
-              <Drawer.Screen 
+              <Stack.Screen 
                 name='Registration'
                 component={Registration}
               />
               
-            </Drawer.Navigator>
+            </Stack.Navigator>
           </NavigationContainer>
         </>
       )

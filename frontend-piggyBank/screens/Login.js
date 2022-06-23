@@ -39,7 +39,10 @@ const LoginScreen = () => {
           screen: 'Dashboard',
           params: { userId: responseJson.userId } 
         })
-        resetForm({ values: ''})
+        resetForm({ values: {
+          email: values.email,
+          password: ''
+        }})
       } else {
         console.log("Can't login");
       }

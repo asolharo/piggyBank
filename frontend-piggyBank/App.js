@@ -62,7 +62,7 @@ const App = () => {
                 name='Root'
                 component={Root}
               />
-              <Stack.Screen 
+              <Stack.Screen
                 name='Registration'
                 component={Registration}
               />

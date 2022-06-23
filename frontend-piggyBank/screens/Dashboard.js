@@ -3,11 +3,14 @@ import React, { useState } from 'react'
 import { assets, SIZES } from '../constants'
 import Balance from '../components/Balance'
 import LearningPath from '../components/LearningPath'
+import { TouchableOpacity } from 'react-native-gesture-handler'
+import { useNavigation } from '@react-navigation/native'
 
-const Dashboard = ({ route, navigation }) => {
+const Dashboard = ({ route }) => {
   const userId  = route.params.userId
   const baseUrl = 'http://localhost:3000'
   const [userInfo, setUserInfo] = useState()
+  const navigation = useNavigation()
 
   React.useEffect(() => {
     const getUserInfo = async() => {
@@ -46,7 +49,7 @@ const Dashboard = ({ route, navigation }) => {
           <Balance balance={userInfo.accountBalance.$numberDecimal} setBalance={setUserInfo} />
           <Text style={{ marginTop: 30, fontSize: 20 }}>Learning Paths</Text>
           <View style={{marginTop: 10}}>
-            <LearningPath title="Budget" path="Budget"/>
+            <LearningPath title="Budget" path="Budgeting"/>
             <LearningPath title="Financial Planning" path="Forecasting"/>
           </View>
       </View>

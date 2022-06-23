@@ -13,7 +13,7 @@ const forecastMenu = [
   {
     title: "Savings Goal",
     targetScreen: './SavingsCalcScreen',
-    path: 'SavingsCalcultor'
+    path: 'SavingsCalculator'
   },
   {
     title: "Interest Calculator",

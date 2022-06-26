@@ -23,7 +23,7 @@ const LoginScreen = () => {
   const baseUrl = 'http://localhost:3000'
   const navigation = useNavigation()
   
-  const onSubmit = async (values) => {
+  const onSubmit = async (values, { resetForm }) => {
     try {
       const res = await fetch(`${baseUrl}/user/login`, {
         method: 'POST',
@@ -34,11 +34,15 @@ const LoginScreen = () => {
         body: JSON.stringify(values)
       })
       const responseJson = await res.json()
-      //console.log(responseJson);
       if (res.status === 200 && responseJson.token){
-        navigation.navigate('Dashboard', { 
-          userId: responseJson.userId 
+        navigation.navigate('Root', { 
+          screen: 'Dashboard',
+          params: { userId: responseJson.userId } 
         })
+        resetForm({ values: {
+          email: values.email,
+          password: ''
+        }})
       } else {
         console.log("Can't login");
       }

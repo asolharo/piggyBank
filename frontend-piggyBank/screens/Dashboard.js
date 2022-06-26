@@ -1,14 +1,16 @@
 import { View, Text, StyleSheet, Image } from 'react-native'
 import React, { useState } from 'react'
-import { assets } from '../constants'
+import { assets, SIZES } from '../constants'
 import Balance from '../components/Balance'
 import LearningPath from '../components/LearningPath'
+import { TouchableOpacity } from 'react-native-gesture-handler'
+import { useNavigation } from '@react-navigation/native'
 
-
-const Dashboard = ({ route, navigation }) => {
+const Dashboard = ({ route }) => {
   const userId  = route.params.userId
   const baseUrl = 'http://localhost:3000'
   const [userInfo, setUserInfo] = useState()
+  const navigation = useNavigation()
 
   React.useEffect(() => {
     const getUserInfo = async() => {
@@ -37,28 +39,30 @@ const Dashboard = ({ route, navigation }) => {
   }
   
   return (
-    <View style={styles.container}>
-      <View style={styles.welcomeContainer}>
-        <Text style={styles.welcome}>Hey {userInfo.fullname}</Text>
-        <Image source={assets.avatar} style={{ resizeMode: "contain", width: 70, height: 70}} />
+    <>
+      <View style={styles.container}>
+          <View style={styles.welcomeContainer}>
+            <Text style={styles.welcome}>Hey {userInfo.fullname}</Text>
+            <Image source={assets.avatar} style={{ resizeMode: "contain", width: 70, height: 70}} />
+          </View>
+          <Text style={{ marginTop: -10 }}>Welcome back!</Text>
+          <Balance balance={userInfo.accountBalance.$numberDecimal} setBalance={setUserInfo} />
+          <Text style={{ marginTop: 30, fontSize: 20 }}>Learning Paths</Text>
+          <View style={{marginTop: 10}}>
+            <LearningPath title="Budget" path="Budgeting"/>
+            <LearningPath title="Financial Planning" path="Forecasting"/>
+          </View>
       </View>
-      <Text style={{ marginTop: -10 }}>Welcome back!</Text>
-      <Balance balance={userInfo.accountBalance.$numberDecimal} setBalance={setUserInfo} />
-      <Text style={{ marginTop: 30, fontSize: 20 }}>Learning Paths</Text>
-      <View style={{marginTop: 10}}>
-        <LearningPath title="Budget"/>
-        <LearningPath title="Financial Planning"/>
-      </View>
-    </View>
+    </>
   )
 }
 
 const styles = StyleSheet.create({
   container:{
-    padding: 20,
+    padding: SIZES.large,
   },
   welcome:{
-    fontSize: 30,
+    fontSize: SIZES.superLarge,
   },
   welcomeContainer: {
     flexDirection: "row",

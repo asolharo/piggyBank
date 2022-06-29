@@ -1,13 +1,13 @@
 
 import React from 'react';
-import ForecastingScreen from './screens/ForecastingScreen';
-import SavingsCalcScreen from './screens/SavingsCalcScreen';
+import SavingsPath from './screens/Forecasting_Paths/SavingsPath';
+// import Dashboard from './screens/Dashboard';
 
 
 export default function App() {
   return (
-    // <SavingsCalcScreen/>
-    <ForecastingScreen/>
+    // <Dashboard/>
+    <SavingsPath/>
 
   );
 }

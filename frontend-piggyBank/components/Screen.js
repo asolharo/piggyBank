@@ -16,7 +16,7 @@ function Screen({children, style}) {
 const styles = StyleSheet.create({
   screen: {
     alignItems: "center",
-    backgroundColor: defaultStyles.colors.background,
+    backgroundColor: defaultStyles.colors.white,
     flex: 1,
     justifyContent: "center",
     padding: Constants.statusBarHeight,

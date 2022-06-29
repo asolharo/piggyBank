@@ -9,7 +9,7 @@ import Settings from './Settings'
 import Dashboard from './Dashboard';
 import Forecasting from './ForecastingScreen';
 import SavingsCalcScreen from './SavingsCalcScreen';
-import Budgeting from './Budgeting';
+import BudgetHome from './Budget/BudgetHome';
 
 // Initialize the navigation object
 const Drawer = createDrawerNavigator();
@@ -28,11 +28,11 @@ function CustomDrawerContent(props) {
 
 const Root = () => {
   return (
-    <Drawer.Navigator 
+    <Drawer.Navigator
       initialRouteName='Dashboard'
       drawerContent={(props) => <CustomDrawerContent {...props} />}>
         <Drawer.Screen name="Dashboard" component={Dashboard} />
-        <Drawer.Screen name='Budgeting' component={Budgeting} />
+        <Drawer.Screen name='BudgetHome' component={BudgetHome} />
         <Drawer.Screen name='Forecasting' component={Forecasting} />
         <Drawer.Screen name="Settings" component={Settings} />
         <Drawer.Screen name='SavingsCalculator' component={SavingsCalcScreen} options={{ drawerItemStyle: {display: 'none'}}}/>

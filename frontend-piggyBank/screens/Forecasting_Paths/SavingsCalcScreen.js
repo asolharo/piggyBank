@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
@@ -12,6 +13,7 @@ import defaultStyles from '../../constants/defaultStyles'
 
 
 function SavingsCalcScreen() {
+  const navigation = useNavigation()
   return (
 <Screen>
   <Text style={styles.title}>This is the Savings Calc screen</Text>
@@ -23,7 +25,7 @@ function SavingsCalcScreen() {
        growYears: "",
        rate: "",
       }}
-      onSubmit={() =>console.log(values)}
+      onSubmit={() => console.log(values)}
       // validationSchema={validationSchema}
       >
       <AppText style={styles.text}>Enter Savings Goal:</AppText>

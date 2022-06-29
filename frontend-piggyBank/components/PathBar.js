@@ -3,16 +3,20 @@ import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import defaultStyles from "../constants/defaultStyles";
+import { useNavigation } from "@react-navigation/native";
+
 
 function PathBar({
   title,
+  path,
   onPress,
 
 }) {
+  const navigation = useNavigation()
   return (
     <TouchableOpacity
       onPress={() => {
-        console.log("Links to " + title + " screen");
+        navigation.navigate(path)
       }}
     >
       <View style={styles.pathBar}>

@@ -12,15 +12,18 @@ import Routes from "../navigation/Routes";
 const forecastMenu = [
   {
     title: "Savings Goal",
-    targetScreen: Routes.SAVINGS_TIP
+    targetScreen: './SavingsCalcScreen',
+    path: 'SavingsCalculator'
   },
   {
     title: "Interest Calculator",
-    targetScreen: Routes.INTEREST_TIP
+    targetScreen: './SavingsCalcScreen',
+    path: 'InterestCalcultor'
   },
   {
     title: "Debt Pay-off",
-    targetScreen: Routes.DEBT_TIP
+    targetScreen: './SavingsCalcScreen',
+    path: 'DebtCalcultor'
   },
 ];
 
@@ -33,6 +36,7 @@ function ForecastingScreen() {
       renderItem={({ item }) => (
         <PathBar
         title={item.title}
+        path={item.path}
         />
       )}
       >

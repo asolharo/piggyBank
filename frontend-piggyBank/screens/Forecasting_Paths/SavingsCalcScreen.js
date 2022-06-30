@@ -2,12 +2,15 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-import AppText from '../components/AppText';
-import CalcForm from '../components/calcform/CalcForm';
-import CalcFormField from '../components/calcform/CalcFormField';
-import SubmitButton from '../components/calcform/SubmitButton';
-import Screen from '../components/Screen';
-import defaultStyles from '../constants/defaultStyles'
+import AppText from '../../components/AppText';
+import CalcForm from '../../components/calcform/CalcForm';
+import CalcFormField from '../../components/calcform/CalcFormField';
+import SubmitButton from '../../components/calcform/SubmitButton';
+import Screen from '../../components/Screen';
+import defaultStyles from '../../constants/defaultStyles'
+
+
+
 
 function SavingsCalcScreen() {
   const navigation = useNavigation()

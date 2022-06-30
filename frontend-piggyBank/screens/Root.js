@@ -7,8 +7,8 @@ import { createDrawerNavigator,
 } from '@react-navigation/drawer';
 import Settings from './Settings'
 import Dashboard from './Dashboard';
-import Forecasting from './ForecastingScreen';
-import SavingsCalcScreen from './SavingsCalcScreen';
+import Forecasting from './Forecasting_Paths/ForecastingScreen';
+import SavingsCalcScreen from './Forecasting_Paths/SavingsCalcScreen';
 import BudgetHome from './Budget/BudgetHome';
 
 // Initialize the navigation object

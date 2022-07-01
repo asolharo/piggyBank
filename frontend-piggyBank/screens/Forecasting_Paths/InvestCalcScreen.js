@@ -7,6 +7,12 @@ import AppButton from "../../components/AppButton";
 import Screen from "../../components/Screen";
 import defaultStyles from "../../constants/defaultStyles";
 import { Formik } from "formik";
+
+
+// Investment Calculator /Compound Interest
+// 
+
+
 const InvestCalcScreen = () => {
   let message;
   const onSubmit = async () => {

@@ -1,11 +1,10 @@
-import { Button } from 'react-native'
 import React from 'react'
 import { createDrawerNavigator,
   DrawerContentScrollView,
   DrawerItemList,
   DrawerItem
 } from '@react-navigation/drawer';
-import Settings from './Settings'
+import Account from './Account';
 import Dashboard from './Dashboard';
 import Forecasting from './Forecasting_Paths/ForecastingScreen';
 import SavingsCalcScreen from './Forecasting_Paths/SavingsCalcScreen';
@@ -38,7 +37,7 @@ const Root = () => {
         <Drawer.Screen name="Dashboard" component={Dashboard} />
         <Drawer.Screen name='Budget' component={BudgetHome} />
         <Drawer.Screen name='Forecasting' component={Forecasting} />
-        <Drawer.Screen name="Settings" component={Settings} />
+        <Drawer.Screen name="Account" component={Account} />
         <Drawer.Screen name='SavingsCalculator' component={SavingsCalcScreen} options={{ drawerItemStyle: {display: 'none'}}}/>
         <Drawer.Screen name='Create Budget' component={BudgetCreate} options={{ drawerItemStyle: {display: 'none'}}}/>
         <Drawer.Screen name='Budget Overview' component={BudgetOverview} options={{ drawerItemStyle: {display: 'none'}}}/>

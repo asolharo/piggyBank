@@ -36,9 +36,7 @@ const LoginScreen = () => {
       const responseJson = await res.json()
       if (res.status === 200 && responseJson.token){
         navigation.navigate('Root', { 
-          screen: 'Dashboard',
-          params: { userId: responseJson.userId } 
-        })
+          userId: responseJson.userId })
         resetForm({ values: {
           email: values.email,
           password: ''

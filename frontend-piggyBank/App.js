@@ -1,12 +1,7 @@
 import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
+import { NavigationContainer } from '@react-navigation/native';
 import Login from './screens/Login';
-import Dashboard from './screens/Dashboard';
-import AppBar from './components/AppBar';
-
-import OnBoardingScreen from './screens/OnBoardingScreen';
-import { StatusBar, View } from 'react-native';
+import { View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS } from './constants';
 import { useEffect, useState } from 'react';

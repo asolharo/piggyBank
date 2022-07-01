@@ -29,15 +29,16 @@ function CustomDrawerContent(props) {
   );
 }
 
-const Root = () => {
+const Root = ({ route }) => {
+  const userId = route.params.userId
   return (
     <Drawer.Navigator
       initialRouteName='Dashboard'
       drawerContent={(props) => <CustomDrawerContent {...props} />}>
-        <Drawer.Screen name="Dashboard" component={Dashboard} />
+        <Drawer.Screen name="Dashboard" component={Dashboard} initialParams={{ userId: userId }}/>
         <Drawer.Screen name='Budget' component={BudgetHome} />
         <Drawer.Screen name='Forecasting' component={Forecasting} />
-        <Drawer.Screen name="Account" component={Account} />
+        <Drawer.Screen name="Account" component={Account} initialParams={{ userId: userId }}/>
         <Drawer.Screen name='SavingsCalculator' component={SavingsCalcScreen} options={{ drawerItemStyle: {display: 'none'}}}/>
         <Drawer.Screen name='Create Budget' component={BudgetCreate} options={{ drawerItemStyle: {display: 'none'}}}/>
         <Drawer.Screen name='Budget Overview' component={BudgetOverview} options={{ drawerItemStyle: {display: 'none'}}}/>

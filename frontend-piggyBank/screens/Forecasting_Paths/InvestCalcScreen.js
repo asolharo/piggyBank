@@ -28,7 +28,7 @@ const InvestCalcScreen = () => {
   };
   return (
     <Screen>
-      <Text style={styles.title}>This is the Savings Calc screen</Text>
+      <Text style={styles.title}>Investment Calc screen</Text>
       <View>
         <Formik initialValues={initialValues} onSubmit={onSubmit}>
           {({ handleSubmit }) => (

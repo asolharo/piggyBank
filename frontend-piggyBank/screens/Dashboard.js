@@ -6,6 +6,7 @@ import LearningPath from '../components/LearningPath'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
 
+
 const Dashboard = ({ route }) => {
   const userId  = route.params.userId
   const baseUrl = 'http://localhost:3000'
@@ -49,7 +50,7 @@ const Dashboard = ({ route }) => {
           <Balance balance={userInfo.accountBalance.$numberDecimal} setBalance={setUserInfo} />
           <Text style={{ marginTop: 30, fontSize: 20 }}>Learning Paths</Text>
           <View style={{marginTop: 10}}>
-            <LearningPath title="Budget" path="Budgeting"/>
+            <LearningPath title="Budget" path="Budget"/>
             <LearningPath title="Financial Planning" path="Forecasting"/>
           </View>
       </View>

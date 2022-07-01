@@ -13,12 +13,12 @@ const forecastMenu = [
   {
     title: "Interest Calculator",
     targetScreen: './SavingsCalcScreen',
-    path: 'InterestCalcultor'
+    path: 'Interest Calculator'
   },
   {
     title: "Debt Pay-off",
     targetScreen: './SavingsCalcScreen',
-    path: 'DebtCalcultor'
+    path: 'Debt Pay-off'
   },
 ];
 

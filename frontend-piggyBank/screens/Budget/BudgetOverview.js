@@ -4,7 +4,7 @@ import Screen from "../../components/Screen";
 
 function BudgetOverview() {
   return (
-    <Screen style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.baseText}>
         <Text style={styles.titleText}>Budgeting</Text>
       </View>
@@ -13,7 +13,7 @@ function BudgetOverview() {
         </Text>
       </View>
 
-    </Screen>
+    </View>
   );
 }
 

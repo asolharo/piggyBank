@@ -7,29 +7,29 @@ const BudgetMenu = [
   {
     title: "Create your budget",
     targetScreen: './BudgetCreate',
-    path: 'BudgetCreate'
+    path: 'Create Budget'
   },
   {
     title: "See your budget",
     targetScreen: './BudgetOverview',
-    path: 'BudgetOverview'
+    path: 'Budget Overview'
   }
 
 ];
 
 function BudgetHome() {
   return (
-    <Screen style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.baseText}>
         <Text style={styles.titleText}>Budgeting</Text>
       </View>
       <View style={styles.baseText}>
         <Text>A budget helps you plan and evaluate your expenses.
-Budget for a specific period of time (such as weekly, biweekly, monthly) according to your pay schedule.
-Because income and expenses can vary from week to week, month to month, prepare a new budget each and every week or month.
-Enter all income and expenses each time you prepare a budget. Balance income with expenses, and spend less than you earn.
+          Budget for a specific period of time (such as weekly, biweekly, monthly) according to your pay schedule.
+          Because income and expenses can vary from week to week, month to month, prepare a new budget each and every week or month.
+          Enter all income and expenses each time you prepare a budget. Balance income with expenses, and spend less than you earn.
 
-For this practice you will use a monthly period.
+          For this practice you will use a monthly period.
         </Text>
       </View>
       <View style={styles.baseText}>
@@ -50,7 +50,7 @@ For this practice you will use a monthly period.
       )}
       >
       </FlatList>
-    </Screen>
+    </View>
   );
 }
 

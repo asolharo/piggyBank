@@ -35,7 +35,7 @@ const LoginScreen = () => {
       })
       const responseJson = await res.json()
       if (res.status === 200 && responseJson.token){
-        navigation.navigate('Root', { 
+        navigation.navigate('Root', {
           userId: responseJson.userId,
           token: responseJson.token
         })
@@ -98,11 +98,12 @@ const LoginScreen = () => {
         >
           {({ handleSubmit }) => (
             <View>
-              <FormikTextInput name="email" placeholder="Email" placeholderTextColor= "#000"/>
+              <FormikTextInput name="email" placeholder="Email" placeholderTextColor= "#000" autoCapitalize='none'/>
               <FormikTextInput
                 name="password"
                 placeholder="Password"
                 placeholderTextColor= "#000"
+                autoCapitalize='none'
                 secureTextEntry={true}
               />
               <Pressable onPress={handleSubmit} style={styles.btn}>

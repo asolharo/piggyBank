@@ -1,14 +1,12 @@
-
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import SavingsPath from './screens/Forecasting_Paths/SavingsPath';
-// import Dashboard from './screens/Dashboard';
-
+// import ForecastingScreen from './screens/Forecasting_Paths/ForecastingScreen';
+import SavingsCalcScreen from './screens/Forecasting_Paths/SavingsCalcScreen';
 
 export default function App() {
   return (
-    // <Dashboard/>
-    <SavingsPath/>
-
+    <NavigationContainer>
+<SavingsCalcScreen/>
+    </NavigationContainer>
   );
 }
-

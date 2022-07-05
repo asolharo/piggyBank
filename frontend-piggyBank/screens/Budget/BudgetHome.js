@@ -5,16 +5,15 @@ import Screen from "../../components/Screen";
 
 const BudgetMenu = [
   {
+    title: "Learn budgeting",
+    targetScreen: './BudgetOverview',
+    path: 'Budget Overview'
+  },
+  {
     title: "Create your budget",
     targetScreen: './BudgetCreate',
     path: 'Create Budget'
   },
-  {
-    title: "See your budget",
-    targetScreen: './BudgetOverview',
-    path: 'Budget Overview'
-  }
-
 ];
 
 function BudgetHome() {

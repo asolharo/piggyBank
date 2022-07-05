@@ -7,18 +7,18 @@ import Routes from "../../navigation/Routes";
 const forecastMenu = [
   {
     title: "Savings Goal",
-    targetScreen: './SavingsCalcScreen',
-    path: 'SavingsCalculator'
+    targetScreen: './SavingsTipScreen',
+    path: 'Savings Tips'
   },
   {
     title: "Interest Calculator",
-    targetScreen: './SavingsCalcScreen',
-    path: 'Interest Calculator'
+    targetScreen: './InvestTipScreen',
+    path: 'Investing Tips'
   },
   {
     title: "Debt Pay-off",
-    targetScreen: './SavingsCalcScreen',
-    path: 'Debt Pay-off'
+    targetScreen: './DebtTipScreen',
+    path: 'Debt Pay-off Tips'
   },
 ];
 

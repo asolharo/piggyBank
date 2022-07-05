@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import AppButton from '../../components/AppButton';
@@ -7,12 +8,13 @@ import Screen from '../../components/Screen';
 import defaultStyles from '../../constants/defaultStyles'
 
 function SavingsTipScreen() {
+  const navigation = useNavigation()
   return (
 <Screen>
   <AppText style={styles.title}>This is the Savings Calc Tip screen</AppText>
   <View >
 <AppText>Helpful tip here:</AppText>
-<AppButton title="NavtoCalc"></AppButton>
+<AppButton title="NavtoCalc" onPress={() => navigation.navigate('SavingsCalculator')}></AppButton>
   </View>
 </Screen>
   );

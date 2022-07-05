@@ -3,15 +3,11 @@ import React, { useState } from 'react'
 import { assets, SIZES } from '../constants'
 import Balance from '../components/Balance'
 import LearningPath from '../components/LearningPath'
-import { TouchableOpacity } from 'react-native-gesture-handler'
-import { useNavigation } from '@react-navigation/native'
-
 
 const Dashboard = ({ route }) => {
-  const userId  = route.params.userId
   const baseUrl = 'http://localhost:3000'
   const [userInfo, setUserInfo] = useState()
-  const navigation = useNavigation()
+  const userId = route.params.userId;
 
   React.useEffect(() => {
     const getUserInfo = async() => {

@@ -14,27 +14,27 @@ const Account = ({ route }) => {
   // Handle reset account balance
   // REQUEST NOT WORKING - problem in the backend
   async function handleReset() {
-    console.log('reset!');
+    console.log(userInfo.fullname);
+
     const bodyReq = {
-      ...userInfo,
-      userId: userId,
-      accountBalance: {
-        $numberDecimal: 1100
-      }
+      fullname: userInfo.fullname,
+      email: userInfo.email,
+      password: 'fedfed',
+      accountBalance: 1000
     }
     try {
-      const res = await fetch(`${baseUrl}/edit-user/${userId}`, {
+      const res = await fetch(`${baseUrl}/user/edit-user/${userId}`, {
         method: 'PUT',
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
+          'auth': `Bearer ${token}`,
         },
         body: JSON.stringify(bodyReq)
       })
-      const json = await res.json()
-      console.log('success')
-      console.log(json);
+      console.log('blah blah')
+      const status = await res.text()
+      console.log(status);
       
     } catch (err) {
       console.log('error');

@@ -53,6 +53,7 @@ const Registration = () => {
   const navigation = useNavigation()
   
   const onSubmit = async (values) => {
+    console.log(values)
     try {
       const res = await fetch(`${baseUrl}/user/add-user`, {
         method: 'POST',

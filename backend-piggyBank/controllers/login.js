@@ -18,7 +18,7 @@ exports.postAddUser = (req, res, next) => {
     throw error;
   }
   console.log(req.body);
-  const fullName = req.body.fullname;
+  const fullname = req.body.fullname;
   const email = req.body.email;
   const password = req.body.password;
   const accountBalance = 1000
@@ -27,7 +27,7 @@ exports.postAddUser = (req, res, next) => {
     .hash(password, 12)
     .then(hashedPw => {
       const user = new User({
-        fullname: fullName,
+        fullname: fullname,
         email: email,
         password: hashedPw,
         accountBalance: accountBalance
@@ -80,6 +80,9 @@ exports.putUpdateUser = (req, res, next) => {
   const authUserId = req.userId;
   const userId = req.params.userId;
 
+  console.log(authUserId);
+  console.log(userId);
+
   //Authorize user
   if (userId !== authUserId) {
     const error = new Error('User not authorized');
@@ -87,19 +90,21 @@ exports.putUpdateUser = (req, res, next) => {
     throw error;
   }
 
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    const error = new Error('Validation failed.');
-    error.statusCode = 422;
-    error.data = errors.array();
-    throw error;
-  }
-  const firstName = req.body.firstName;
-  const lastName = req.body.lastName;
+  // const errors = validationResult(req);
+  // if (!errors.isEmpty()) {
+  //   const error = new Error('Validation failed.');
+  //   error.statusCode = 422;
+  //   error.data = errors.array();
+  //   throw error;
+  // }
+
+  // TODO: UNHASH THE PASSWORD
+
+  const fullname = req.body.fullname;
   const email = req.body.email;
   const username = req.body.username;
   const password = req.body.password;
-
+  const accountBalance = req.body.accountBalance;
 
   User.findById(userId)
     .then(user => {
@@ -111,10 +116,10 @@ exports.putUpdateUser = (req, res, next) => {
       bcrypt
         .hash(password, 12)
         .then(hashedPw => {
-          user.firstName = firstName;
-          user.lastName = lastName;
+          user.fullname = fullname;
           user.email = email;
           user.username = username;
+          user.accountBalance = accountBalance
           user.password = hashedPw;
           return user.save();
         });

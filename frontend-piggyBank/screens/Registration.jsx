@@ -91,11 +91,13 @@ const Registration = () => {
             <FormikTextInput 
               name="email" 
               placeholder="Email" 
+              autoCapitalize='none'
             />
             <FormikTextInput
               name="password"
               placeholder="Password"
               secureTextEntry={true}
+              autoCapitalize='none'
             />
             <Pressable onPress={handleSubmit} style={styles.btn}>
               <Text style={styles.btnText}>Create Account</Text>

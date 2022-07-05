@@ -1,30 +1,65 @@
 import React, {useState} from 'react';
 import { Text, View, StyleSheet, Button, Alert } from 'react-native';
 import Slider from '@react-native-community/slider'
+import Balance from '../../components/Balance';
 
-const BudgetCreate = () => {
-    const [donation, Slider_donations] = useState(0);
-    const [savings, Slider_savings] = useState(0);
-    const [food, Slider_food] = useState(0);
-    const [rent, Slider_rent] = useState(0);
-    const [utilities, Slider_utilities] = useState(0);
+const BudgetCreate = ({ route }) => {
+    const [donation, Slider_donations] = useState();
+    const [savings, Slider_savings] = useState();
+    const [food, Slider_food] = useState();
+    const [rent, Slider_rent] = useState();
+    const [utilities, Slider_utilities] = useState();
 
-const initialBudget = 1000
-const expenses = donation + savings + food + rent + utilities
-var mssg = ""
+    const userId  = route.params.userId
+    const baseUrl = 'http://localhost:3000'
+    const [userInfo, setUserInfo] = useState()
 
-var balance = 0
-if (expenses > initialBudget) {
-    balance = expenses - initialBudget
-    mssg = "You spend more than you earn by " + balance
-} else {
-    balance = initialBudget - expenses
-    mssg = "Your balance is " + balance
-}
+
+    React.useEffect(() => {
+      const getUserInfo = async() => {
+        try {
+          const res = await fetch(`${baseUrl}/user/users/${userId}`, {
+            method: 'GET',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json'
+            }
+          })
+          const responseJson = await res.json()
+          //console.log(responseJson);
+          setUserInfo(responseJson)
+
+        } catch (err) {
+          console.log(err);
+        }
+      }
+
+      getUserInfo()
+    }, [])
+
+    if (!userInfo) {
+        return <View></View>
+      }
+    //console.log(`Test: ${userId}`)
+
+    const initialBudget = userInfo.accountBalance.$numberDecimal
+    const expenses = donation + savings + food + rent + utilities
+    var mssg = ""
+
+    var finalBudget = 0
+    if (expenses > initialBudget) {
+        finalBudget = expenses - initialBudget
+        mssg = "You spend more than you earn by " + finalBudget
+    } else {
+        finalBudget = initialBudget - expenses
+        mssg = "Your balance is " + finalBudget
+    }
 
     return (
         <View style={styles.container}>
             <Text style={styles.titleText}>Create Budget</Text>
+
+            <Balance balance={userInfo.accountBalance.$numberDecimal} setBalance={setUserInfo} />
 
             <View>
                 <Text>Church donations: {donation}</Text>
@@ -107,7 +142,7 @@ if (expenses > initialBudget) {
             />
             </View>
             <Button
-        title="Press me"
+        title="Save budget"
         onPress={() => Alert.alert('Your monthly income is: ' + initialBudget + '\n\
         \nYour monthly expenses are\nChurch donations: ' + donation + '\
         \nSavings: ' + savings + '\

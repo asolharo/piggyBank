@@ -3,11 +3,13 @@ import React, { useState } from 'react'
 import { assets, SIZES } from '../constants'
 import Balance from '../components/Balance'
 import LearningPath from '../components/LearningPath'
+import { useIsFocused } from '@react-navigation/native'
 
 const Dashboard = ({ route }) => {
   const baseUrl = 'http://localhost:3000'
   const [userInfo, setUserInfo] = useState()
   const userId = route.params.userId;
+  const isFocused = useIsFocused();
 
   React.useEffect(() => {
     const getUserInfo = async() => {
@@ -27,9 +29,10 @@ const Dashboard = ({ route }) => {
         console.log(err);
       }
     }
-
-    getUserInfo()
-  }, [])
+    if(isFocused){ 
+      getUserInfo()
+  }   
+  }, [isFocused])
 
   if (!userInfo) {
     return <View></View>

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Text, View, StyleSheet, Pressable, unstable_enableLogBox } from 'react-native';
 import Slider from '@react-native-community/slider'
 import Balance from '../../components/Balance';
+import { useIsFocused } from '@react-navigation/native'
 
 const BudgetCreate = ({ route }) => {
     const [donation, setDonations] = useState(0);
@@ -10,6 +11,7 @@ const BudgetCreate = ({ route }) => {
     const [rent, setRent] = useState(0);
     const [utilities, setUtilities] = useState(0);
     const [balance, setBalance] = useState(0);
+    const isFocused = useIsFocused();
 
     const userId  = route.params.userId
     const baseUrl = 'http://localhost:3000'
@@ -33,8 +35,10 @@ const BudgetCreate = ({ route }) => {
           console.log(err);
         }
       }
-      getUserInfo()
-    }, [])
+      if(isFocused){ 
+        getUserInfo()
+    }   
+    }, [isFocused])
 
     if (!userInfo) {
         return <View></View>

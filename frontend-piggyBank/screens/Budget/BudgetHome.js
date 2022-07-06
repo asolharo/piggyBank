@@ -7,7 +7,7 @@ const BudgetMenu = [
   {
     title: "Learn budgeting",
     targetScreen: './BudgetOverview',
-    path: 'Budget Overview'
+    path: 'Learn Budgeting'
   },
   {
     title: "Create your budget",

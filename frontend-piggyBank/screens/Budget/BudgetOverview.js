@@ -7,10 +7,10 @@ function BudgetOverview() {
   return (
     <View style={styles.container}>
       <View style={styles.baseText}>
-        <Text style={styles.titleText}>Budgeting</Text>
+        <Text style={styles.titleText}>Learn How to Budget</Text>
       </View>
       <View style={styles.baseText}>
-        <Text>This is the Overview screen
+        <Text>This is the budget learning screen.
         </Text>
       </View>
 
@@ -21,12 +21,11 @@ function BudgetOverview() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 50,
     backgroundColor: "white",
   },
   baseText: {
     fontFamily: "Cochin",
-    marginTop:20,
+    marginTop:10,
     padding:30,
     textAlign: 'justify'
   },

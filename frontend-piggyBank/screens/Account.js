@@ -19,7 +19,7 @@ const Account = ({ route }) => {
     const bodyReq = {
       fullname: userInfo.fullname,
       email: userInfo.email,
-      password: 'fedfed',
+      password: 'fedfed', // hash the psw back
       accountBalance: 1000
     }
     try {

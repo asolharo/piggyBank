@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Text, View, StyleSheet, Pressable, unstable_enableLogBox } from 'react-native';
+import { Text, View, StyleSheet, Pressable, Alert } from 'react-native';
 import Slider from '@react-native-community/slider'
 import Balance from '../../components/Balance';
 import { useIsFocused } from '@react-navigation/native'
@@ -37,7 +37,7 @@ const BudgetCreate = ({ route }) => {
       }
       if(isFocused){ 
         getUserInfo()
-    }   
+      }   
     }, [isFocused])
 
     if (!userInfo) {
@@ -45,7 +45,14 @@ const BudgetCreate = ({ route }) => {
     }
 
     const handleSubmit = () => {
-      console.log('press!');
+      const expenses = donation + savings + food + rent + utilities
+      if (balance > expenses) {
+        Alert.alert('Under budget')
+      } else if (balance == 0) {
+        Alert.alert('No money left in the balance')
+      } else {
+        Alert.alert('Over budget');
+      }
     }
     
     return (

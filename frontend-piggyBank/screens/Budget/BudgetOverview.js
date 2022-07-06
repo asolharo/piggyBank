@@ -10,7 +10,7 @@ function BudgetOverview() {
         <Text style={styles.titleText}>Learn How to Budget</Text>
       </View>
       <View style={styles.baseText}>
-        <Text>This is the budget learning screen
+        <Text>This is the budget learning screen.
         </Text>
       </View>
 

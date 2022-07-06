@@ -9,7 +9,7 @@ const BudgetCreate = ({ route }) => {
     const [food, setFood] = useState(0);
     const [rent, setRent] = useState(0);
     const [utilities, setUtilities] = useState(0);
-    const [balance, setBalance] = useState();
+    const [balance, setBalance] = useState(0);
 
     const userId  = route.params.userId
     const baseUrl = 'http://localhost:3000'
@@ -27,9 +27,8 @@ const BudgetCreate = ({ route }) => {
             }
           })
           const responseJson = await res.json()
-          const initBalance = await userInfo.accountBalance.$numberDecimal
           setUserInfo(responseJson)
-          setBalance(initBalance)
+          setBalance(responseJson.accountBalance.$numberDecimal)
         } catch (err) {
           console.log(err);
         }

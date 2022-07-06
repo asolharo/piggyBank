@@ -55,7 +55,7 @@ const BudgetCreate = ({ route }) => {
             <View>
                 <Text>Church donations: ${donation}</Text>
                 <Slider
-                maximumValue={1000}
+                maximumValue={userInfo.accountBalance.$numberDecimal}
                 minimumValue={0}
                 minimumTrackTintColor="#76d6ff"
                 maximumTrackTintColor="#01579B"
@@ -73,7 +73,7 @@ const BudgetCreate = ({ route }) => {
             <View>
                 <Text>Savings: ${savings}</Text>
                 <Slider
-                maximumValue={1000}
+                maximumValue={userInfo.accountBalance.$numberDecimal}
                 minimumValue={0}
                 minimumTrackTintColor="#76d6ff"
                 maximumTrackTintColor="#01579B"
@@ -92,7 +92,7 @@ const BudgetCreate = ({ route }) => {
             <View>
                 <Text>Food: ${food}</Text>
                 <Slider
-                maximumValue={1000}
+                maximumValue={userInfo.accountBalance.$numberDecimal}
                 minimumValue={0}
                 minimumTrackTintColor="#76d6ff"
                 maximumTrackTintColor="#01579B"
@@ -111,7 +111,7 @@ const BudgetCreate = ({ route }) => {
             <View>
                 <Text>Mortgage or Rent: ${rent}</Text>
                 <Slider
-                maximumValue={1000}
+                maximumValue={userInfo.accountBalance.$numberDecimal}
                 minimumValue={0}
                 minimumTrackTintColor="#76d6ff"
                 maximumTrackTintColor="#01579B"
@@ -130,7 +130,7 @@ const BudgetCreate = ({ route }) => {
             <View>
                 <Text>Utilities: ${utilities}</Text>
                 <Slider
-                maximumValue={1000}
+                maximumValue={userInfo.accountBalance.$numberDecimal}
                 minimumValue={0}
                 minimumTrackTintColor="#76d6ff"
                 maximumTrackTintColor="#01579B"

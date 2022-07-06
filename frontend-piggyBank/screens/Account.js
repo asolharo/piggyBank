@@ -10,7 +10,7 @@ const Account = ({ route }) => {
   const [userInfo, setUserInfo] = useState()
   const userId = route.params.userId;
   const token = route.params.token
-  console.log(userId, token);
+  //console.log(userId, token);
 
   // Handle reset account balance
   async function handleReset() {
@@ -65,7 +65,7 @@ const Account = ({ route }) => {
   }
 
   const initialValues = {
-    newBalance: 0,
+    newBalance: '',
   };
 
   const validationSchema = yup.object().shape({

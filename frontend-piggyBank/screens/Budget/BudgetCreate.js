@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
-import { Text, View, StyleSheet, Button, Alert } from 'react-native';
+import { Text, View, StyleSheet, Pressable, unstable_enableLogBox } from 'react-native';
 import Slider from '@react-native-community/slider'
 import Balance from '../../components/Balance';
 
 const BudgetCreate = ({ route }) => {
-    const [donation, Slider_donations] = useState();
-    const [savings, Slider_savings] = useState();
-    const [food, Slider_food] = useState();
-    const [rent, Slider_rent] = useState();
-    const [utilities, Slider_utilities] = useState();
+    const [donation, setDonations] = useState(0);
+    const [savings, setSavings] = useState(0);
+    const [food, setFood] = useState(0);
+    const [rent, setRent] = useState(0);
+    const [utilities, setUtilities] = useState(0);
+    const [balance, setBalance] = useState();
 
     const userId  = route.params.userId
     const baseUrl = 'http://localhost:3000'
@@ -26,43 +27,30 @@ const BudgetCreate = ({ route }) => {
             }
           })
           const responseJson = await res.json()
-          //console.log(responseJson);
+          const initBalance = await userInfo.accountBalance.$numberDecimal
           setUserInfo(responseJson)
-
+          setBalance(initBalance)
         } catch (err) {
           console.log(err);
         }
       }
-
       getUserInfo()
     }, [])
 
     if (!userInfo) {
         return <View></View>
-      }
-    //console.log(`Test: ${userId}`)
-
-    const initialBudget = userInfo.accountBalance.$numberDecimal
-    const expenses = donation + savings + food + rent + utilities
-    var mssg = ""
-
-    var finalBudget = 0
-    if (expenses > initialBudget) {
-        finalBudget = expenses - initialBudget
-        mssg = "You spend more than you earn by " + finalBudget
-    } else {
-        finalBudget = initialBudget - expenses
-        mssg = "Your balance is " + finalBudget
     }
 
+    const handleSubmit = () => {
+      console.log('press!');
+    }
+    
     return (
+      <>
+        <Balance balance={balance}  />
         <View style={styles.container}>
-            <Text style={styles.titleText}>Create Budget</Text>
-
-            <Balance balance={userInfo.accountBalance.$numberDecimal} setBalance={setUserInfo} />
-
             <View>
-                <Text>Church donations: {donation}</Text>
+                <Text>Church donations: ${donation}</Text>
                 <Slider
                 maximumValue={1000}
                 minimumValue={0}
@@ -71,14 +59,16 @@ const BudgetCreate = ({ route }) => {
                 step={1}
                 value={0}
                 onValueChange={
-                (sliderValue) => Slider_donations(sliderValue)
-                }
+                (sliderValue) => {
+                  setDonations(sliderValue)
+                  setBalance(balance - (sliderValue - donation))
+                }}
                 thumbTintColor="#656566"
                 style={{width: 300, height: 40}}
-            />
+                />
             </View>
             <View>
-                <Text>Savings: {savings}</Text>
+                <Text>Savings: ${savings}</Text>
                 <Slider
                 maximumValue={1000}
                 minimumValue={0}
@@ -87,14 +77,17 @@ const BudgetCreate = ({ route }) => {
                 step={1}
                 value={0}
                 onValueChange={
-                (sliderValue) => Slider_savings(sliderValue)
+                (sliderValue) => {
+                  setSavings(sliderValue)
+                  setBalance(balance - (sliderValue - savings))
+                }
                 }
                 thumbTintColor="#656566"
                 style={{width: 300, height: 40}}
-            />
+                />
             </View>
             <View>
-                <Text>Food: {food}</Text>
+                <Text>Food: ${food}</Text>
                 <Slider
                 maximumValue={1000}
                 minimumValue={0}
@@ -103,30 +96,17 @@ const BudgetCreate = ({ route }) => {
                 step={1}
                 value={0}
                 onValueChange={
-                (sliderValue) => Slider_food(sliderValue)
+                (sliderValue) => {
+                  setFood(sliderValue)
+                  setBalance(balance - (sliderValue - food))
+                }
                 }
                 thumbTintColor="#656566"
                 style={{width: 300, height: 40}}
-            />
+                />
             </View>
             <View>
-                <Text>Mortgage or Rent: {rent}</Text>
-                <Slider
-                maximumValue={1000}
-                minimumValue={0}
-                minimumTrackTintColor="#76d6ff"
-                maximumTrackTintColor="#01579B"
-                step={100}
-                value={0}
-                onValueChange={
-                (sliderValue) => Slider_rent(sliderValue)
-                }
-                thumbTintColor="#656566"
-                style={{width: 300, height: 40}}
-            />
-            </View>
-            <View>
-                <Text>Utilities: {utilities}</Text>
+                <Text>Mortgage or Rent: ${rent}</Text>
                 <Slider
                 maximumValue={1000}
                 minimumValue={0}
@@ -135,32 +115,49 @@ const BudgetCreate = ({ route }) => {
                 step={1}
                 value={0}
                 onValueChange={
-                (sliderValue) => Slider_utilities(sliderValue)
+                (sliderValue) => {
+                  setRent(sliderValue)
+                  setBalance(balance - (sliderValue - rent))
+                }
                 }
                 thumbTintColor="#656566"
                 style={{width: 300, height: 40}}
             />
             </View>
-            <Button
-        title="Save budget"
-        onPress={() => Alert.alert('Your monthly income is: ' + initialBudget + '\n\
-        \nYour monthly expenses are\nChurch donations: ' + donation + '\
-        \nSavings: ' + savings + '\
-        \nFood: ' + food + '\
-        \nMortgage or Rent: ' +  rent + '\
-        \nUtilities: ' +  utilities + '\n\n' + mssg)}
-      />
+            <View>
+                <Text>Utilities: ${utilities}</Text>
+                <Slider
+                maximumValue={1000}
+                minimumValue={0}
+                minimumTrackTintColor="#76d6ff"
+                maximumTrackTintColor="#01579B"
+                step={1}
+                value={0}
+                onValueChange={
+                (sliderValue) => {
+                  setUtilities(sliderValue)
+                  setBalance(balance - (sliderValue - utilities))
+                }
+                }
+                thumbTintColor="#656566"
+                style={{width: 300, height: 40}}
+            />
+            </View>
         </View>
+        <Pressable onPress={handleSubmit} style={styles.btn}>
+          <Text style={styles.btnText}>Save Budget</Text>
+        </Pressable>
+      </>
     )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: "flex-start",
-        alignItems:"flex-start",
-        marginTop: 100,
-        marginLeft:30
+  container: {
+      flex: 1,
+      justifyContent: "flex-start",
+      alignItems:"flex-start",
+      marginTop: 30,
+      marginLeft:30
     },
     baseText: {
       fontFamily: "Cochin",
@@ -171,7 +168,19 @@ const styles = StyleSheet.create({
     titleText: {
       fontSize: 20,
       fontWeight: "bold"
-    }
+    },
+    btn: {
+      backgroundColor: "#2245C4",
+      padding: 15,
+      margin: 15,
+      borderRadius: 15,
+      marginBottom: 40,
+    },
+    btnText: {
+      color: "#fff",
+      textAlign: "center",
+      fontSize: 18,
+    },
 
   });
 

@@ -44,7 +44,7 @@ const Root = ({ route }) => {
         <Drawer.Screen name='Forecasting' component={Forecasting} />
         <Drawer.Screen name="Account" component={Account} initialParams={{ userId: userId, token: token }}/>
         <Drawer.Screen name='Create Budget' component={BudgetCreate} initialParams={{ userId: userId }} options={{ drawerItemStyle: {display: 'none'}}}/>
-        <Drawer.Screen name='Budget Overview' component={BudgetOverview} options={{ drawerItemStyle: {display: 'none'}}}/>
+        <Drawer.Screen name='Learn Budgeting' component={BudgetOverview} options={{ drawerItemStyle: {display: 'none'}}}/>
         <Drawer.Screen name='SavingsCalculator' component={SavingsCalcScreen} options={{ drawerItemStyle: {display: 'none'}}}/>
         <Drawer.Screen name='Savings Tips' component={SavingsTipScreen} options={{ drawerItemStyle: {display: 'none'}}}/>
         <Drawer.Screen name='Interest Calculator' component={InvestCalcScreen} options={{ drawerItemStyle: {display: 'none'}}}/>

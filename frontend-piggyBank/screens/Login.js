@@ -13,6 +13,8 @@ import React from "react";
 import { Formik } from "formik";
 import * as yup from "yup";
 import FormikTextInput from "../components/FormikTextInput";
+import { useState } from "react";
+import Message from "../components/Message";
 
 const LoginScreen = () => {
   const initialValues = {
@@ -22,6 +24,8 @@ const LoginScreen = () => {
   
   const baseUrl = 'http://localhost:3000'
   const navigation = useNavigation()
+  const [message, setMessage] = useState(null)
+  const [messageType, setMessageType] = useState('')
   
   const onSubmit = async (values, { resetForm }) => {
     try {
@@ -47,7 +51,16 @@ const LoginScreen = () => {
         console.log("Can't login");
       }
     } catch (err) {
-      console.log(err);
+      console.log(`Error: ${err}`);
+      setMessage('Incorrect username or password')
+      setMessageType('error')
+      setTimeout(() => {
+        setMessage(null)
+      }, 5000);
+      resetForm({ values: {
+        email: values.email,
+        password: ''
+      }})
     }
   };
   
@@ -90,7 +103,11 @@ const LoginScreen = () => {
       {/* Middle */}
       <View style={styles.container}>
         <Text style={styles.title}>Login</Text>
-
+        {
+          message != null
+          ? <Message text={message} type={messageType} />
+          : <View />
+        }
         <Formik
           initialValues={initialValues}
           onSubmit={onSubmit}

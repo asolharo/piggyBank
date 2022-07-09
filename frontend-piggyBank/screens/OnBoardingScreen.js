@@ -17,14 +17,14 @@ const slides = [
     {
       id: '2',
       image: assets.onboarding2,
-      title: 'Best way to learn finances',
-      subtitle: 'Tired of running out of money?!'
+      title: 'The only learning tool you need',
+      subtitle: 'Help the youth to learn how to manage their money'
     },
     {
       id: '3',
       image: assets.onboarding3,
-      title: 'Best way to learn finances',
-      subtitle: 'Tired of running out of money?!'
+      title: 'Free. Forever.',
+      subtitle: 'Our mission is to help 1,000,000 students learn how to budget.'
     }
 ]
 

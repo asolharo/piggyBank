@@ -46,7 +46,7 @@ const App = () => {
         </SafeAreaView>
           <NavigationContainer>
             <Stack.Navigator
-              initialRouteName="Login"
+              initialRouteName="OnBoarding"
               screenOptions={{
                 headerShown: false
               }}>

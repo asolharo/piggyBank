@@ -49,7 +49,7 @@ const BottomOnBoard = ({ slides, currSlideIndex, nextSlide, skip }) => {
                   fontWeight: "bold",
                   fontSize: SIZES.medium,
                 }}
-                onPress={() => navigation.replace("Login")}
+                onPress={() => navigation.navigate("Login")}
               >
                 GET STARTED
               </Text>

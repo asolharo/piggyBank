@@ -4,13 +4,15 @@ import { SIZES } from '../constants'
 import { Formik } from 'formik'
 import * as yup from "yup";
 import FormikTextInput from '../components/FormikTextInput';
+import Message from '../components/Message';
 
 const Account = ({ route }) => {
   const baseUrl = 'http://localhost:3000'
   const [userInfo, setUserInfo] = useState()
   const userId = route.params.userId;
   const token = route.params.token
-  //console.log(userId, token);
+  const [message, setMessage] = useState(null)
+  const [messageType, setMessageType] = useState('')
 
   // Handle reset account balance
   async function handleReset() {
@@ -32,10 +34,19 @@ const Account = ({ route }) => {
       })
       const status = await res.text()
       console.log(status);
+      setMessage('Account balance has been correctly reset')
+      setMessageType('success')
+      setTimeout(() => {
+        setMessage(null)
+      }, 5000);
       
     } catch (err) {
-      console.log('error');
       console.log(err);
+      setMessage('An error occured. Please try again.')
+      setMessageType('error')
+      setTimeout(() => {
+        setMessage(null)
+      }, 5000);
     }
   }
 
@@ -93,17 +104,32 @@ const Account = ({ route }) => {
       })
       const status = await res.text()
       console.log(status);
+      setMessage('Account balance has been updated to $' + bodyReq.accountBalance)
+      setMessageType('success')
+      setTimeout(() => {
+        setMessage(null)
+      }, 5000);
       resetForm({ values: {
         newBalance: ''
       }})
     } catch (err) {
       console.log('error');
       console.log(err);
+      setMessage('An error occured. Please try again.')
+      setMessageType('error')
+      setTimeout(() => {
+        setMessage(null)
+      }, 5000);
     }
   }
 
   return (
     <View style={styles.container}>
+    {
+      message != null
+      ? <Message text={message} type={messageType} />
+      : <View />
+    }
       <View>
         <Text style={styles.text}>Name: {userInfo.fullname}</Text>
         <Text style={styles.text}>Email: {userInfo.email}</Text>

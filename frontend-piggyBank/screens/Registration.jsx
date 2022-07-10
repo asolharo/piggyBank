@@ -19,36 +19,7 @@ const Registration = () => {
       .min(3, "Password is too short")
       .required("Password is required"),
   });
-  const styles = StyleSheet.create({
-    container: {
-      padding: 30,
-  
-    },
-    title: {
-      fontSize: 30,
-      paddingBottom: 10,
-      paddingTop: 20,
-    },
-    btn: {
-      backgroundColor: "#2245C4",
-      padding: 15,
-      margin: 15,
-      borderRadius: 15,
-    },
-    btnText: {
-      color: "#fff",
-      textAlign: "center",
-      fontSize: 18,
-    },
-    mb30: {
-      marginBottom: 30,
-    },
-    link: {
-      marginLeft: 5,
-      color: '#1248a1',
-      textDecorationLine: 'underline'
-    }
-  })
+
   
   const navigation = useNavigation()
   
@@ -115,5 +86,36 @@ const Registration = () => {
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 30,
+
+  },
+  title: {
+    fontSize: 30,
+    paddingBottom: 10,
+    paddingTop: 20,
+  },
+  btn: {
+    backgroundColor: "#2245C4",
+    padding: 15,
+    margin: 15,
+    borderRadius: 15,
+  },
+  btnText: {
+    color: "#fff",
+    textAlign: "center",
+    fontSize: 18,
+  },
+  mb30: {
+    marginBottom: 30,
+  },
+  link: {
+    marginLeft: 5,
+    color: '#1248a1',
+    textDecorationLine: 'underline'
+  }
+})
 
 export default Registration

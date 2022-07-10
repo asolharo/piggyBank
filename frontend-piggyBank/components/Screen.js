@@ -1,28 +1,19 @@
 import React from 'react';
-import Constants from "expo-constants";
-import {SafeAreaView, StyleSheet, View} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 
 import defaultStyles from '../constants/defaultStyles';
 
 function Screen({children, style}) {
   return (
-    <SafeAreaView style={[styles.screen, style]}>
-      <View style={[styles.view, style]}>
+    <SafeAreaView style={[defaultStyles.screenView, style]}>
+      <View>
       {children}
       </View>
     </SafeAreaView>
   );
 }
-const styles = StyleSheet.create({
-  screen: {
-    alignItems: "center",
-    backgroundColor: defaultStyles.colors.white,
-    flex: 1,
-    justifyContent: "center",
-    padding: Constants.statusBarHeight,
-    paddingTop: 20,
-  },
-})
+
 
 
 export default Screen;

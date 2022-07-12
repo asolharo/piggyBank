@@ -1,16 +1,19 @@
 import React from "react";
 import { StyleSheet, View, Text, FlatList, Linking } from "react-native";
+import defaultStyles from "../../constants/defaultStyles";
+import Header from "../../components/Header";
 import PathBar from "../../components/PathBar";
 import Screen from "../../components/Screen";
+import AppText from "../../components/AppText";
 
 const BudgetMenu = [
   {
     title: "Learn budgeting",
-    targetScreen: './BudgetOverview',
+    targetScreen: './learning/BudgetOverview',
     path: 'Learn Budgeting'
   },
   {
-    title: "Create your budget",
+    title: "Create Your Budget",
     targetScreen: './BudgetCreate',
     path: 'Create Budget'
   },
@@ -18,25 +21,16 @@ const BudgetMenu = [
 
 function BudgetHome() {
   return (
-    <View style={styles.container}>
-      <View style={styles.baseText}>
-        <Text style={styles.titleText}>Budgeting</Text>
-      </View>
-      <View style={styles.baseText}>
-        <Text>A budget helps you plan and evaluate your expenses.
-          Budget for a specific period of time (such as weekly, biweekly, monthly) according to your pay schedule.
-          Because income and expenses can vary from week to week, month to month, prepare a new budget each and every week or month.
-          Enter all income and expenses each time you prepare a budget. Balance income with expenses, and spend less than you earn.
-
-          For this practice you will use a monthly period.
-        </Text>
-      </View>
-      <View style={styles.baseText}>
-        <Text style={{color: 'blue'}}
-              onPress={() => Linking.openURL('https://www.churchofjesuschrist.org/bc/content/shared/english/pdf/callings/welfare/72727_FamilyBudgetWorksheet_pdf.pdf')}>
-          From "Budget worksheet"
-        </Text>
-      </View>
+    <Screen>
+    <Header />
+    <View style={defaultStyles.center}>
+      <Text style={[defaultStyles.subHeadline, {marginTop: 60, marginBottom:20}]}>
+        Keeping Track of What You've Got
+      </Text>
+      <Text style={defaultStyles.headline}>With a Budget</Text>
+    </View>
+        <AppText style= {defaultStyles.text_on_dark}>
+        </AppText>
 
       <FlatList
       data={BudgetMenu}
@@ -49,7 +43,7 @@ function BudgetHome() {
       )}
       >
       </FlatList>
-    </View>
+    </Screen>
   );
 }
 

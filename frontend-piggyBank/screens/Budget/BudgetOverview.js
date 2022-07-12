@@ -1,39 +1,32 @@
-import React from "react";
-import { StyleSheet, View, Text } from "react-native";
-import Screen from "../../components/Screen";
-import BudgetCreate from "./BudgetCreate";
 
-function BudgetOverview() {
+import React from 'react'
+import { NavigationContainer } from '@react-navigation/native';
+import { StyleSheet, View, Text, Button } from "react-native";
+import Page0 from './learning/Page0';
+import Page1 from './learning/page1';
+import Page2 from './learning/page2';
+import Page3 from './learning/page3';
+import Page4 from './learning/page4';
+import Page5 from './learning/page5';
+import Page6 from './learning/page6';
+import {createStackNavigator} from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
+
+const BudgetOverview = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.baseText}>
-        <Text style={styles.titleText}>Learn How to Budget</Text>
-      </View>
-      <View style={styles.baseText}>
-        <Text>This is the budget learning screen.
-        </Text>
-      </View>
-
-    </View>
-  );
+    <NavigationContainer independent={true}>
+      <Stack.Navigator initialRouteName='Page0'>
+        <Stack.Screen name='Budgeting 101' component={Page0} />
+        <Stack.Screen name='What is a Budget?' component={Page1} />
+        <Stack.Screen name='A Protection' component={Page2} />
+        <Stack.Screen name='Expenses' component={Page3} />
+        <Stack.Screen name='Fixed Expenses' component={Page4} />
+        <Stack.Screen name='Variable Expenses' component={Page5} />
+        <Stack.Screen name='Example' component={Page6} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white",
-  },
-  baseText: {
-    fontFamily: "Cochin",
-    marginTop:10,
-    padding:30,
-    textAlign: 'justify'
-  },
-  titleText: {
-    fontSize: 20,
-    fontWeight: "bold"
-  }
-
-});
 
 export default BudgetOverview;

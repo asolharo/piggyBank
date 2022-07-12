@@ -62,7 +62,7 @@ const DebtCalcScreen = () => {
   };
   return (
     <Screen>
-      <Header />
+      
       <ScrollView>
         <View style={defaultStyles.center}>
           <Image

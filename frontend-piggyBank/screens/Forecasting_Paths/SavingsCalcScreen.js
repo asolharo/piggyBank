@@ -47,7 +47,7 @@ const SavingsCalcScreen = () => {
   };
   return (
     <Screen>
-      <Header />
+      
       <ScrollView>
         <View style={defaultStyles.center}>
           <Image

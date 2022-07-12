@@ -14,7 +14,6 @@ import { useIsFocused } from "@react-navigation/native";
 import Screen from "../../components/Screen";
 import Header from "../../components/Header";
 import defaultStyles from "../../constants/defaultStyles";
-import App from "../../App";
 import AppText from "../../components/AppText";
 
 const BudgetCreate = ({ route }) => {
@@ -70,7 +69,7 @@ const BudgetCreate = ({ route }) => {
   return (
     <>
       <Screen>
-        <Header />
+        
         <ScrollView style={defaultStyles.padding}>
           <Text style={defaultStyles.subHeadline}>Lots of Items</Text>
           <Text style={defaultStyles.headline}>Let's Get Budgetting</Text>

@@ -6,7 +6,6 @@ import LearningPath from "../components/LearningPath";
 import { useIsFocused } from "@react-navigation/native";
 import defaultStyles from "../constants/defaultStyles";
 import PathBar from "../components/PathBar";
-import Header from "../components/Header";
 import Screen from "../components/Screen";
 import { FlatList } from "react-native-gesture-handler";
 
@@ -58,20 +57,6 @@ const Dashboard = ({ route }) => {
   return (
     <>
       <Screen>
-        <View
-          style={[
-            defaultStyles.header,
-            defaultStyles.center,
-            defaultStyles.padding,
-          ]}
-        >
-          <Text style={defaultStyles.subHeadline}>Hey {userInfo.fullname}</Text>
-          <Image
-            source={assets.avatar}
-            style={{ resizeMode: "contain", width: 70, height: 70 }}
-          />
-        </View>
-
         <View style={defaultStyles.padding}>
           <Text style={defaultStyles.subHeadline}>Welcome back!</Text>
           <Text style={defaultStyles.headline}>Let's Get Learning</Text>
@@ -94,19 +79,5 @@ const Dashboard = ({ route }) => {
     </>
   );
 };
-
-// const styles = StyleSheet.create({
-//   container: {
-//     padding: SIZES.large,
-//   },
-//   welcome: {
-//     fontSize: SIZES.superLarge,
-//   },
-//   welcomeContainer: {
-//     flexDirection: "row",
-//     justifyContent: "space-between",
-//     alignItems: "center",
-//   },
-// });
 
 export default Dashboard;

@@ -27,7 +27,7 @@ const forecastMenu = [
 function ForecastingScreen() {
   return (
     <Screen>
-      <Header />
+      
       <View style={defaultStyles.center}>
         <Text style={[defaultStyles.subHeadline, {marginTop: 60}]}>
           It's never too early to start

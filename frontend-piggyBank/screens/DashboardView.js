@@ -32,7 +32,7 @@ function DashboardView() {
   return (
     <>
       <Screen>
-        <Header />
+        
         <View style={defaultStyles.padding}>
           <Text style={defaultStyles.subHeadline}>Welcome back!</Text>
           <Text style={defaultStyles.headline}>Let's Get Learning</Text>

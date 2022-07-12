@@ -12,7 +12,7 @@ function DebtTipScreen() {
   const navigation = useNavigation();
   return (
     <Screen>
-      <Header />
+      
       <ScrollView>
         <View style={defaultStyles.center}>
           <AppText

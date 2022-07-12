@@ -3,27 +3,17 @@ import React, { useState } from "react";
 import { SIZES } from "../constants";
 import { Formik } from "formik";
 import * as yup from "yup";
-<<<<<<< HEAD
-import FormikTextInput from "../components/FormikTextInput";
 import defaultStyles from "../constants/defaultStyles";
 import Screen from "../components/Screen";
-=======
-import FormikTextInput from '../components/FormikTextInput';
-import Message from '../components/Message';
->>>>>>> refs/remotes/origin/ashley-styling
+import FormikTextInput from "../components/FormikTextInput";
 
 const Account = ({ route }) => {
   const baseUrl = "http://localhost:3000";
   const [userInfo, setUserInfo] = useState();
   const userId = route.params.userId;
-<<<<<<< HEAD
-  const token = route.params.token;
-  //console.log(userId, token);
-=======
   const token = route.params.token
   const [message, setMessage] = useState(null)
   const [messageType, setMessageType] = useState('')
->>>>>>> refs/remotes/origin/ashley-styling
 
   // Handle reset account balance
   async function handleReset() {
@@ -45,21 +35,10 @@ const Account = ({ route }) => {
       });
       const status = await res.text();
       console.log(status);
-<<<<<<< HEAD
     } catch (err) {
       console.log("error");
-=======
       setMessage('Account balance has been correctly reset')
       setMessageType('success')
-      setTimeout(() => {
-        setMessage(null)
-      }, 5000);
-      
-    } catch (err) {
->>>>>>> refs/remotes/origin/ashley-styling
-      console.log(err);
-      setMessage('An error occured. Please try again.')
-      setMessageType('error')
       setTimeout(() => {
         setMessage(null)
       }, 5000);
@@ -117,13 +96,11 @@ const Account = ({ route }) => {
       });
       const status = await res.text();
       console.log(status);
-<<<<<<< HEAD
       resetForm({
         values: {
           newBalance: "",
         },
       });
-=======
       setMessage('Account balance has been updated to $' + bodyReq.accountBalance)
       setMessageType('success')
       setTimeout(() => {
@@ -132,7 +109,6 @@ const Account = ({ route }) => {
       resetForm({ values: {
         newBalance: ''
       }})
->>>>>>> refs/remotes/origin/ashley-styling
     } catch (err) {
       console.log("error");
       console.log(err);
@@ -145,7 +121,6 @@ const Account = ({ route }) => {
   };
 
   return (
-<<<<<<< HEAD
     <Screen>
       <ScrollView>
         <View style={styles.container}>
@@ -201,41 +176,7 @@ const Account = ({ route }) => {
     </Screen>
   );
 };
-=======
-    <View style={styles.container}>
-    {
-      message != null
-      ? <Message text={message} type={messageType} />
-      : <View />
-    }
-      <View>
-        <Text style={styles.text}>Name: {userInfo.fullname}</Text>
-        <Text style={styles.text}>Email: {userInfo.email}</Text>
-      </View>
-      <View style={styles.containerFormik}>
-        <Text style={styles.title}>Change Balance Amount</Text>
-        <Formik
-          initialValues={initialValues}
-          onSubmit={onSubmit}
-          validationSchema={validationSchema}
-        >
-          {({ handleSubmit }) => (
-            <View>
-              <FormikTextInput name="newBalance" placeholder="$1,500" placeholderTextColor= "#aaa" autoCapitalize='none'/>
-              <Pressable onPress={handleSubmit} style={styles.btn}>
-                <Text style={styles.btnText}>Change the Balance</Text>
-              </Pressable>
-            </View>
-          )}
-        </Formik>
-      </View>
-      <Pressable onPress={handleReset} style={styles.btn}>
-        <Text style={styles.btnText}>Reset Account</Text>
-      </Pressable>
-    </View>
-  )
-}
->>>>>>> refs/remotes/origin/ashley-styling
+
 
 const styles = StyleSheet.create({
   container: {

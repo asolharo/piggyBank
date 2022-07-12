@@ -18,8 +18,8 @@ const forecastMenu = [
   },
   {
     title: "Forecasting",
-    targetScreen: "./InvestTipScreen",
-    path: "Investing Tips",
+    targetScreen: "./ForecastingScreen",
+    path: "Forecasting",
   },
 ];
 

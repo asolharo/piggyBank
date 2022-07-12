@@ -15,6 +15,7 @@ import Screen from "../../components/Screen";
 import Header from "../../components/Header";
 import defaultStyles from "../../constants/defaultStyles";
 import App from "../../App";
+import AppText from "../../components/AppText";
 
 const BudgetCreate = ({ route }) => {
   const [donation, setDonations] = useState(0);

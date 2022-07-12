@@ -13,8 +13,8 @@ import { FlatList } from "react-native-gesture-handler";
 const forecastMenu = [
   {
     title: "Budget",
-    targetScreen: "./SavingsTipScreen",
-    path: "Savings Tips",
+    targetScreen: "./BudgetHome",
+    path: "Budget",
   },
   {
     title: "Forecasting",

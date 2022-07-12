@@ -6,6 +6,7 @@ import { assets } from '../constants'
 
 import {COLORS, SLIDE1, SLIDE2, SLIDE3 } from '../constants'; 
 import BottomOnBoard from '../components/BottomOnBoard';
+import defaultStyles from '../constants/defaultStyles';
 
 const slides = [
   {
@@ -58,7 +59,7 @@ const OnBoardingScreen = () => {
   }
 
   return (
-    <View style={{flex:1, backgroundColor: COLORS.white}}>
+    <View style={{flex:1, backgroundColor: defaultStyles.colors.secondary}}>
         <FlatList 
           pagingEnabled
           ref={ref}

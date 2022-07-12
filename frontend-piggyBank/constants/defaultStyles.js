@@ -1,4 +1,4 @@
-import { Platform } from 'react-native';
+import {  Dimensions, Platform } from 'react-native';
 
 import colors from './colors';
 import Constants from "expo-constants";
@@ -32,11 +32,6 @@ export default {
     textTransform: 'uppercase',
     fontWeight: 'bold'
   },
-  // flex: {
-  //   flexDirection: "row",
-  //   justifyContent: 'space-between',
-  //   alignItems: 'center',
-  // },
   header: {
     flexDirection: "row",
     justifyContent: 'space-between',
@@ -89,12 +84,14 @@ export default {
     color: colors.light,
   },
   screenView: {
-    // alignItems: "center",
     backgroundColor: colors.background,
     flex: 1,
-    // justifyContent: "center",
     padding: Constants.statusBarHeight,
     paddingTop: 20,
+  },
+  slider: {
+    width: 250,
+     height: 40
   },
   subHeadline: {
     fontSize: 24,
@@ -118,5 +115,10 @@ text_button: {
 textInput: {
   borderColor: colors.secondary,
   color: colors.black,
+},
+text_slider: {
+  marginTop: 10,
+  fontSize: 15,
+  color: colors.text_on_dark,
 }
 };

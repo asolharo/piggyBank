@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { View, StyleSheet, ScrollView } from "react-native";
+import { View, ScrollView } from "react-native";
 import AppButton from "../../components/AppButton";
 
 import AppText from "../../components/AppText";
@@ -15,7 +15,7 @@ function SavingsTipScreen() {
       <Header />
       <ScrollView>
         <View style={defaultStyles.center}>
-          <AppText style={defaultStyles.headline}>Savings Trick</AppText>
+          <AppText style={[defaultStyles.headline, {marginBottom: 20, marginTop: 20}]}>Savings Trick:</AppText>
           <AppText style={defaultStyles.subHeadline}>
             Save First, NOT Last
           </AppText>
@@ -27,7 +27,7 @@ function SavingsTipScreen() {
           <AppText style={defaultStyles.headline}> BIG RULE</AppText>
           <AppText style={defaultStyles.text_on_dark}>about money.</AppText>
           <AppText style={defaultStyles.text_on_dark}>
-            You can only spend it once. So if youare saving for a new bike, but
+            You can only spend it once. So if you are saving for a new bike, but
             decide to use money from your SAVE category to go see a movie, that
             money is gone. You now can't use it for your bike. Your dream of a
             bike just got farther away.
@@ -42,14 +42,5 @@ function SavingsTipScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  title: {
-    fontSize: 30,
-    color: defaultStyles.colors.primary,
-  },
-  text: {
-    color: defaultStyles.colors.white,
-  },
-});
 
 export default SavingsTipScreen;

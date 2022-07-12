@@ -1,60 +1,61 @@
 import React, { useState } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  Pressable,
-  Alert,
-  ScrollView,
-} from "react-native";
+import { View,Text, StyleSheet, Pressable, Alert, ScrollView } from "react-native";
+import AppText from "../../components/AppText";
 import Slider from "@react-native-community/slider";
 import Balance from "../../components/Balance";
 import { useIsFocused } from "@react-navigation/native";
-
 import Screen from "../../components/Screen";
 import Header from "../../components/Header";
 import defaultStyles from "../../constants/defaultStyles";
 import App from "../../App";
-import AppText from "../../components/AppText";
 
-const BudgetCreate = ({ route }) => {
-  const [donation, setDonations] = useState(0);
-  const [savings, setSavings] = useState(0);
-  const [food, setFood] = useState(0);
-  const [rent, setRent] = useState(0);
-  const [utilities, setUtilities] = useState(0);
-  const [balance, setBalance] = useState(0);
-  const isFocused = useIsFocused();
+// const BudgetCreate2 = ({ route }) => {
+//     const [donation, setDonations] = useState(0);
+//     const [savings, setSavings] = useState(0);
+//     const [food, setFood] = useState(0);
+//     const [rent, setRent] = useState(0);
+//     const [utilities, setUtilities] = useState(0);
+//     const [balance, setBalance] = useState(0);
+//     const isFocused = useIsFocused();
 
-  const userId = route.params.userId;
-  const baseUrl = "http://localhost:3000";
-  const [userInfo, setUserInfo] = useState();
+//     const userId  = route.params.userId
+//     const baseUrl = 'http://localhost:3000'
+//     const [userInfo, setUserInfo] = useState()
 
-  React.useEffect(() => {
-    const getUserInfo = async () => {
-      try {
-        const res = await fetch(`${baseUrl}/user/users/${userId}`, {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-        });
-        const responseJson = await res.json();
-        setUserInfo(responseJson);
-        setBalance(responseJson.accountBalance.$numberDecimal);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    if (isFocused) {
-      getUserInfo();
-    }
-  }, [isFocused]);
+//     React.useEffect(() => {
+//       const getUserInfo = async() => {
+//         try {
+//           const res = await fetch(`${baseUrl}/user/users/${userId}`, {
+//             method: 'GET',
+//             headers: {
+//               Accept: 'application/json',
+//               'Content-Type': 'application/json'
+//             }
+//           })
+//           const responseJson = await res.json()
+//           setUserInfo(responseJson)
+//           setBalance(responseJson.accountBalance.$numberDecimal)
+//         } catch (err) {
+//           console.log(err);
+//         }
+//       }
+//       if(isFocused){
+//         getUserInfo()
+//       }
+//     }, [isFocused])
 
-  if (!userInfo) {
-    return <View></View>;
-  }
+//     if (!userInfo) {
+//         return <View></View>
+//     }
+
+function BudgetCreate2() {
+  const balance = 1000;
+  const donation = 100;
+  const expenses = 400;
+  const savings = 200;
+  const food = 200;
+  const rent = 400;
+  const utilities = 50;
 
   const handleSubmit = () => {
     const expenses = donation + savings + food + rent + utilities;
@@ -72,7 +73,8 @@ const BudgetCreate = ({ route }) => {
       <Screen>
         <Header />
         <ScrollView style={defaultStyles.padding}>
-          <Text style={defaultStyles.subHeadline}>Lots of Items</Text>
+
+        <Text style={defaultStyles.subHeadline}>Lots of Items</Text>
           <Text style={defaultStyles.headline}>Let's Get Budgetting</Text>
           <Balance balance={balance} />
           <View style={[defaultStyles.center, { marginTop: 30 }]}>
@@ -81,7 +83,7 @@ const BudgetCreate = ({ route }) => {
                 Charitable Donations: ${donation}
               </AppText>
               <Slider
-                maximumValue={userInfo.accountBalance.$numberDecimal}
+                maximumValue={1000}
                 minimumValue={0}
                 minimumTrackTintColor="#76d6ff"
                 maximumTrackTintColor="#01579B"
@@ -100,7 +102,7 @@ const BudgetCreate = ({ route }) => {
                 Savings: ${savings}
               </AppText>
               <Slider
-                maximumValue={userInfo.accountBalance.$numberDecimal}
+                maximumValue={1000}
                 minimumValue={0}
                 minimumTrackTintColor="#76d6ff"
                 maximumTrackTintColor="#01579B"
@@ -117,7 +119,7 @@ const BudgetCreate = ({ route }) => {
             <View>
               <AppText style={defaultStyles.text_slider}>Food: ${food}</AppText>
               <Slider
-                maximumValue={userInfo.accountBalance.$numberDecimal}
+                maximumValue={1000}
                 minimumValue={0}
                 minimumTrackTintColor="#76d6ff"
                 maximumTrackTintColor="#01579B"
@@ -136,7 +138,7 @@ const BudgetCreate = ({ route }) => {
                 Housing: ${rent}
               </AppText>
               <Slider
-                maximumValue={userInfo.accountBalance.$numberDecimal}
+                maximumValue={1000}
                 minimumValue={0}
                 minimumTrackTintColor="#76d6ff"
                 maximumTrackTintColor="#01579B"
@@ -155,7 +157,7 @@ const BudgetCreate = ({ route }) => {
                 Utilities: ${utilities}
               </AppText>
               <Slider
-                maximumValue={userInfo.accountBalance.$numberDecimal}
+                maximumValue={1000}
                 minimumValue={0}
                 minimumTrackTintColor="#76d6ff"
                 maximumTrackTintColor="#01579B"
@@ -170,6 +172,7 @@ const BudgetCreate = ({ route }) => {
               />
             </View>
           </View>
+          
           <View style={defaultStyles.center}>
             <Pressable
               onPress={handleSubmit}
@@ -182,38 +185,38 @@ const BudgetCreate = ({ route }) => {
       </Screen>
     </>
   );
-};
+}
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: "flex-start",
-//     alignItems: "flex-start",
-//     marginTop: 30,
-//     marginLeft: 30,
-//   },
-//   baseText: {
-//     fontFamily: "Cochin",
-//     marginTop: 20,
-//     padding: 30,
-//     textAlign: "justify",
-//   },
-//   titleText: {
-//     fontSize: 20,
-//     fontWeight: "bold",
-//   },
-//   btn: {
-//     backgroundColor: "#2245C4",
-//     padding: 15,
-//     margin: 15,
-//     borderRadius: 15,
-//     marginBottom: 40,
-//   },
-//   btnText: {
-//     color: "#fff",
-//     textAlign: "center",
-//     fontSize: 18,
-//   },
-// });
+const styles = StyleSheet.create({
+  // container: {
+  //   flex: 1,
+  //   justifyContent: "flex-start",
+  //   alignItems: "flex-start",
+  //   marginTop: 30,
+  //   marginLeft: 30,
+  // },
+  baseText: {
+    fontFamily: "Cochin",
+    marginTop: 20,
+    padding: 30,
+    textAlign: "justify",
+  },
+  titleText: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  btn: {
+    backgroundColor: "#2245C4",
+    padding: 15,
+    margin: 15,
+    borderRadius: 15,
+    marginBottom: 40,
+  },
+  btnText: {
+    color: "#fff",
+    textAlign: "center",
+    fontSize: 18,
+  },
+});
 
-export default BudgetCreate;
+export default BudgetCreate2;

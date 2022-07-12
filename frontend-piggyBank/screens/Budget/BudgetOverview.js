@@ -15,7 +15,6 @@ const Stack = createStackNavigator();
 
 const BudgetOverview = () => {
   return (
-    <NavigationContainer independent={true}>
       <Stack.Navigator initialRouteName='Page0'>
         <Stack.Screen name='Budgeting 101' component={Page0} />
         <Stack.Screen name='What is a Budget?' component={Page1} />
@@ -25,7 +24,6 @@ const BudgetOverview = () => {
         <Stack.Screen name='Variable Expenses' component={Page5} />
         <Stack.Screen name='Example' component={Page6} />
       </Stack.Navigator>
-    </NavigationContainer>
   )
 }
 

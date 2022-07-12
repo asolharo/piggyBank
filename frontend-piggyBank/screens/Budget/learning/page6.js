@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text, Button, Image } from "react-native";
+import { StyleSheet, View, Text, Button, Image, Pressable } from "react-native";
 import { assets, SIZES } from "../../../constants";
 
 
@@ -24,6 +24,12 @@ const Page6 = ({navigation}) => {
           Go to manual
         </Text>
       </View>
+      <Pressable onPress={() => navigation.navigate("Budget")}>
+            <Text>Go back</Text>
+      </Pressable>
+      <Pressable onPress={() => navigation.navigate("Create Budget")}>
+            <Text>Creat Your Budget</Text>
+      </Pressable>
     </View>
   );
 }

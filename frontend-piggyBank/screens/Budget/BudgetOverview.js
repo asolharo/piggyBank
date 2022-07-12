@@ -1,7 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
-import Screen from "../../components/Screen";
-import BudgetCreate from "./BudgetCreate";
+import { StyleSheet, View, Text, Dimensions, SafeAreaView, StatusBar, Platform, FlatList } from "react-native";
 
 function BudgetOverview() {
   return (
@@ -10,8 +8,11 @@ function BudgetOverview() {
         <Text style={styles.titleText}>Learn How to Budget</Text>
       </View>
       <View style={styles.baseText}>
-        <Text>This is the budget learning screen.
+        <Text>A budget is a Plan.
         </Text>
+        <Text>Using a budget, you plan how you will use your money for a certain period of time.
+        </Text>
+        <Text>Following a budget will help you and your family take control of your life. Budgeting can also help you to protect your family from hardship as you use it to allocate money for building an emergency fund, paying down debt, and saving for future expenses.</Text>
       </View>
 
     </View>
@@ -35,5 +36,6 @@ const styles = StyleSheet.create({
   }
 
 });
+
 
 export default BudgetOverview;

@@ -13,36 +13,39 @@ import React from "react";
 import { Formik } from "formik";
 import * as yup from "yup";
 import FormikTextInput from "../components/FormikTextInput";
+import defaultStyles from "../constants/defaultStyles";
 
 const LoginScreen = () => {
   const initialValues = {
     password: "",
     email: "",
   };
-  
-  const baseUrl = 'http://localhost:3000'
-  const navigation = useNavigation()
-  
+
+  const baseUrl = "http://localhost:3000";
+  const navigation = useNavigation();
+
   const onSubmit = async (values, { resetForm }) => {
     try {
       const res = await fetch(`${baseUrl}/user/login`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
+          Accept: "application/json",
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(values)
-      })
-      const responseJson = await res.json()
-      if (res.status === 200 && responseJson.token){
-        navigation.navigate('Root', {
+        body: JSON.stringify(values),
+      });
+      const responseJson = await res.json();
+      if (res.status === 200 && responseJson.token) {
+        navigation.navigate("Root", {
           userId: responseJson.userId,
-          token: responseJson.token
-        })
-        resetForm({ values: {
-          email: values.email,
-          password: ''
-        }})
+          token: responseJson.token,
+        });
+        resetForm({
+          values: {
+            email: values.email,
+            password: "",
+          },
+        });
       } else {
         console.log("Can't login");
       }
@@ -50,7 +53,7 @@ const LoginScreen = () => {
       console.log(err);
     }
   };
-  
+
   const validationSchema = yup.object().shape({
     email: yup
       .string()
@@ -76,20 +79,26 @@ const LoginScreen = () => {
       />
 
       {/* Header */}
-      <ImageBackground
-        source={require("../assets/images/onboarding_1.png")}
-        style={{
-          height: Dimensions.get("window").height / 2.5,
-        }}
+      <View
+        style={[
+          styles.appNameBox,
+          { backgroundColor: defaultStyles.colors.secondary,  },
+        ]}
       >
-        <View style={styles.appNameBox}>
-          <Text style={styles.appName}>Piggy Bank</Text>
-        </View>
-      </ImageBackground>
+        <ImageBackground
+          source={require("../assets/images/piggy-with-coin.png")}
+          style={{
+            height: Dimensions.get("window").height / 2.5,
+
+          }}
+        >
+          <Text style={[styles.appName, {marginTop:  Dimensions.get("window").height / 3.5}]}>Piggy Bank</Text>
+        </ImageBackground>
+      </View>
 
       {/* Middle */}
       <View style={styles.container}>
-        <Text style={styles.title}>Login</Text>
+        <Text style={defaultStyles.subHeadline}>Login</Text>
 
         <Formik
           initialValues={initialValues}
@@ -98,16 +107,21 @@ const LoginScreen = () => {
         >
           {({ handleSubmit }) => (
             <View>
-              <FormikTextInput name="email" placeholder="Email" placeholderTextColor= "#000" autoCapitalize='none'/>
+              <FormikTextInput
+                name="email"
+                placeholder="Email"
+                placeholderTextColor="#000"
+                autoCapitalize="none"
+              />
               <FormikTextInput
                 name="password"
                 placeholder="Password"
-                placeholderTextColor= "#000"
-                autoCapitalize='none'
+                placeholderTextColor="#000"
+                autoCapitalize="none"
                 secureTextEntry={true}
               />
-              <Pressable onPress={handleSubmit} style={styles.btn}>
-                <Text style={styles.btnText}>Login</Text>
+              <Pressable onPress={handleSubmit}  style={defaultStyles.button_submit}>
+                <Text style={defaultStyles.button_text}>Login</Text>
               </Pressable>
             </View>
           )}
@@ -132,9 +146,9 @@ const styles = StyleSheet.create({
 
   appNameBox: {
     flex: 1,
+    flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#1967a3",
   },
 
   appName: {

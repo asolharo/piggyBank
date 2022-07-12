@@ -1,21 +1,22 @@
-import { View, Text, StyleSheet } from 'react-native'
-import React from 'react'
-import NumberFormat from 'react-number-format'
+import { View, Text, StyleSheet } from "react-native";
+import React from "react";
+import NumberFormat from "react-number-format";
+import defaultStyles from "../constants/defaultStyles";
 
 const Balance = ({ balance, setBalance }) => {
   return (
-    <View style={styles.container}>
-    <Text style={{ paddingBottom: 10 }}>Current Balance: </Text>
-      <NumberFormat 
+    <View style={[styles.container, defaultStyles.center]}>
+      <Text style={defaultStyles.headline}>Current Balance: </Text>
+      <NumberFormat
         value={balance}
         displayType="text"
         thousandSeparator
         prefix="$"
-        renderText={(value) => <Text  style={styles.number}>{value}</Text>}
+        renderText={(value) => <Text style={styles.number}>{value}</Text>}
       />
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -24,9 +25,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#e6eced",
     borderRadius: 15,
   },
-  number:{
+  number: {
     fontSize: 20,
-  }
-})
+    fontWeight: 'bold',
+  },
+});
 
-export default Balance
+export default Balance;

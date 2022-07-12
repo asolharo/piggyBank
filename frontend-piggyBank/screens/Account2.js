@@ -139,9 +139,11 @@ function Account2() {
             )}
           </Formik>
         </View>
+
         <View style={defaultStyles.center}>
         <Text style={defaultStyles.subHeadline}>Budgetting is Hard!</Text>
         <Text style={defaultStyles.headline}>Need a Re-Do?</Text>
+        
           <Pressable style={defaultStyles.button_submit}>
             <Text style={styles.btnText}>Reset Account</Text>
           </Pressable>

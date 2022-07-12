@@ -71,7 +71,7 @@ function BudgetCreate2() {
   return (
     <>
       <Screen>
-        <Header />
+        
         <ScrollView style={defaultStyles.padding}>
 
         <Text style={defaultStyles.subHeadline}>Lots of Items</Text>

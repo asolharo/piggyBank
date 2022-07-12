@@ -8,9 +8,9 @@ import AppText from "../../components/AppText";
 
 const BudgetMenu = [
   {
-    title: "Learn budgeting",
-    targetScreen: './learning/BudgetOverview',
-    path: 'Learn Budgeting'
+    title: "Learn Budgeting",
+    targetScreen: './learning/Page0',
+    path: 'Budgeting 101'
   },
   {
     title: "Create Your Budget",
@@ -22,7 +22,7 @@ const BudgetMenu = [
 function BudgetHome() {
   return (
     <Screen>
-    <Header />
+    
     <View style={defaultStyles.center}>
       <Text style={[defaultStyles.subHeadline, {marginTop: 60, marginBottom:20}]}>
         Keeping Track of What You've Got

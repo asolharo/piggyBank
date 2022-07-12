@@ -12,7 +12,7 @@ function SavingsTipScreen() {
   const navigation = useNavigation();
   return (
     <Screen>
-      <Header />
+      
       <ScrollView>
         <View style={defaultStyles.center}>
           <AppText style={[defaultStyles.headline, {marginBottom: 20, marginTop: 20}]}>Savings Trick:</AppText>

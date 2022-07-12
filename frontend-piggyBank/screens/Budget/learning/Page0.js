@@ -11,7 +11,7 @@ const Page0 = ({ navigation }) => {
     return (
         <View style={styles.container}>
         <Screen>
-      <Header />
+      
       <ScrollView>
         <View style={defaultStyles.center}>
           <AppText
@@ -97,13 +97,3 @@ const Page0 = ({ navigation }) => {
     });
 
 export default Page0
-
-/*
-
-
-function BudgetOverview() {
-  return (
-    
-  );
-}
-*/

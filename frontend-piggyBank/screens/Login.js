@@ -98,11 +98,11 @@ const LoginScreen = () => {
         >
           {({ handleSubmit }) => (
             <View>
-              <FormikTextInput name="email" placeholder="Email" placeholderTextColor= "#000" autoCapitalize='none'/>
+              <FormikTextInput name="email" placeholder="Email" placeholderTextColor= "#aaa" autoCapitalize='none'/>
               <FormikTextInput
                 name="password"
                 placeholder="Password"
-                placeholderTextColor= "#000"
+                placeholderTextColor= "#aaa"
                 autoCapitalize='none'
                 secureTextEntry={true}
               />

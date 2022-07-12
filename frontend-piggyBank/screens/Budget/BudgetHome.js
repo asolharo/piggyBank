@@ -1,12 +1,11 @@
 import React from "react";
 import { StyleSheet, View, Text, FlatList, Linking } from "react-native";
 import PathBar from "../../components/PathBar";
-import Screen from "../../components/Screen";
 
 const BudgetMenu = [
   {
     title: "Learn budgeting",
-    targetScreen: './BudgetOverview',
+    targetScreen: './learning/BudgetOverview',
     path: 'Learn Budgeting'
   },
   {

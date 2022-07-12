@@ -1,41 +1,24 @@
-import React from "react";
-import { StyleSheet, View, Text, Dimensions, SafeAreaView, StatusBar, Platform, FlatList } from "react-native";
+import React from 'react'
+import { NavigationContainer } from '@react-navigation/native';
+import { StyleSheet, View, Text, Button } from "react-native";
+import Page1 from './learning/page1';
+import Page2 from './learning/page2';
+import Page3 from './learning/page3';
+import {createStackNavigator} from '@react-navigation/stack';
 
-function BudgetOverview() {
+const Stack = createStackNavigator();
+
+const BudgetOverview = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.baseText}>
-        <Text style={styles.titleText}>Learn How to Budget</Text>
-      </View>
-      <View style={styles.baseText}>
-        <Text>A budget is a Plan.
-        </Text>
-        <Text>Using a budget, you plan how you will use your money for a certain period of time.
-        </Text>
-        <Text>Following a budget will help you and your family take control of your life. Budgeting can also help you to protect your family from hardship as you use it to allocate money for building an emergency fund, paying down debt, and saving for future expenses.</Text>
-      </View>
-
-    </View>
-  );
+    <NavigationContainer independent={true}>
+      <Stack.Navigator initialRouteName='Page1'>
+        <Stack.Screen name='What is a Budget?' component={Page1} />
+        <Stack.Screen name='A Protection' component={Page2} />
+        <Stack.Screen name='Expenses' component={Page3} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white",
-  },
-  baseText: {
-    fontFamily: "Cochin",
-    marginTop:10,
-    padding:30,
-    textAlign: 'justify'
-  },
-  titleText: {
-    fontSize: 20,
-    fontWeight: "bold"
-  }
-
-});
 
 
 export default BudgetOverview;

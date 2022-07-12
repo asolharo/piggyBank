@@ -73,6 +73,7 @@ function BudgetCreate2() {
       <Screen>
         <Header />
         <ScrollView style={defaultStyles.padding}>
+
         <Text style={defaultStyles.subHeadline}>Lots of Items</Text>
           <Text style={defaultStyles.headline}>Let's Get Budgetting</Text>
           <Balance balance={balance} />
@@ -171,6 +172,7 @@ function BudgetCreate2() {
               />
             </View>
           </View>
+          
           <View style={defaultStyles.center}>
             <Pressable
               onPress={handleSubmit}

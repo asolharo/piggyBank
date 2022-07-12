@@ -8,8 +8,8 @@ import AppText from "../../components/AppText";
 
 const BudgetMenu = [
   {
-    title: "Learn Budgeting",
-    targetScreen: './BudgetOverview',
+    title: "Learn budgeting",
+    targetScreen: './learning/BudgetOverview',
     path: 'Learn Budgeting'
   },
   {

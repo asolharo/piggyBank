@@ -13,7 +13,12 @@ import React from "react";
 import { Formik } from "formik";
 import * as yup from "yup";
 import FormikTextInput from "../components/FormikTextInput";
+
 import defaultStyles from "../constants/defaultStyles";
+
+import { useState } from "react";
+import Message from "../components/Message";
+
 
 const LoginScreen = () => {
   const initialValues = {
@@ -21,9 +26,12 @@ const LoginScreen = () => {
     email: "",
   };
 
-  const baseUrl = "http://localhost:3000";
-  const navigation = useNavigation();
-
+  
+  const baseUrl = 'http://localhost:3000'
+  const navigation = useNavigation()
+  const [message, setMessage] = useState(null)
+  const [messageType, setMessageType] = useState('')
+  
   const onSubmit = async (values, { resetForm }) => {
     try {
       const res = await fetch(`${baseUrl}/user/login`, {
@@ -50,7 +58,16 @@ const LoginScreen = () => {
         console.log("Can't login");
       }
     } catch (err) {
-      console.log(err);
+      console.log(`Error: ${err}`);
+      setMessage('Incorrect username or password')
+      setMessageType('error')
+      setTimeout(() => {
+        setMessage(null)
+      }, 5000);
+      resetForm({ values: {
+        email: values.email,
+        password: ''
+      }})
     }
   };
 
@@ -99,6 +116,11 @@ const LoginScreen = () => {
       {/* Middle */}
       <View style={styles.container}>
         <Text style={defaultStyles.subHeadline}>Login</Text>
+        {
+          message != null
+          ? <Message text={message} type={messageType} />
+          : <View />
+        }
 
         <Formik
           initialValues={initialValues}

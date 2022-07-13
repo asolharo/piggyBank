@@ -4,7 +4,7 @@ import { View, Text, Dimensions, StyleSheet, SafeAreaView, StatusBar, Platform, 
 import Slide from '../components/Slide';
 import { assets } from '../constants'
 
-import {COLORS, SLIDE1, SLIDE2, SLIDE3 } from '../constants'; 
+// import {COLORS, SLIDE1, SLIDE2, SLIDE3 } from '../constants'; 
 import BottomOnBoard from '../components/BottomOnBoard';
 import defaultStyles from '../constants/defaultStyles';
 
@@ -12,20 +12,20 @@ const slides = [
   {
       id: '1',
       image: assets.onboarding1,
-      title: 'Best way to learn finances',
-      subtitle: 'Tired of running out of money?!'
+      title: 'Tired of running out of money?!',
+      subtitle: 'Best way to learn finances'
     },
     {
       id: '2',
       image: assets.onboarding2,
       title: 'The only learning tool you need',
-      subtitle: 'Help the youth to learn how to manage their money'
+      subtitle: 'Youth will learn to manage money'
     },
     {
       id: '3',
       image: assets.onboarding3,
       title: 'Free. Forever.',
-      subtitle: 'Our mission is to help 1,000,000 students learn how to budget.'
+      subtitle: 'Our mission is to help 1,000,000 students prepare for their future, by learning how to budget.'
     }
 ]
 
@@ -75,8 +75,5 @@ const OnBoardingScreen = () => {
   )
 }
 
-const styles = StyleSheet.create({
-
-})
 
 export default OnBoardingScreen;

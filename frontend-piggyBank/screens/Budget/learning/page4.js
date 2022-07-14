@@ -6,6 +6,7 @@ import {
   Button,
   Image,
   ScrollView,
+  Linking,
 } from "react-native";
 import { assets, SIZES } from "../../../constants";
 
@@ -18,13 +19,10 @@ import defaultStyles from "../../../constants/defaultStyles";
 const Page4 = ({ navigation }) => {
   return (
     <Screen>
-      <Header />
       <ScrollView>
         <View
           style={[defaultStyles.center, { flex: 1, flexDirection: "column" }]}
         >
-          {/* <View style={styles.container}>
-            <View style={styles.baseText}> */}
           <AppText
             style={[
               defaultStyles.headline,
@@ -33,14 +31,10 @@ const Page4 = ({ navigation }) => {
           >
             Fixed Expenses
           </AppText>
-          {/* </View> */}
           <View style={styles.baseText}>
             <Text style={[defaultStyles.subHeadline, { textAlign: "center" }]}>
               Fixed expenses are constant. . . They do not fluctuate
             </Text>
-            {/* <Text style={defaultStyles.text_on_dark} >
-                Fixed expenses are for a definite amount and do not change.
-                </Text> */}
             <Text style={defaultStyles.text_on_dark}>
               Most of these types of expenses will be monthly, but there may be
               some that occur more or less frequently.
@@ -61,10 +55,6 @@ const Page4 = ({ navigation }) => {
             color="#f194ff"
             onPress={() => navigation.navigate("Variable Expenses")}
           />
-
-          {/* <Text>
-              * from "Personal Finances for Self-Reliance", pages 57 and 58
-            </Text> */}
           <View style={[defaultStyles.center, { padding: 10 }]}>
             <Text
               style={[defaultStyles.link, {marginBottom:70}]}
@@ -78,7 +68,6 @@ const Page4 = ({ navigation }) => {
             </Text>
           </View>
         </View>
-        {/* </View> */}
       </ScrollView>
     </Screen>
   );

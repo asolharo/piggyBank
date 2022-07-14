@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text, Button, ScrollView } from "react-native";
+import { StyleSheet, View, Text, Button, ScrollView, Linking } from "react-native";
 
 import AppButton from "../../../components/AppButton";
 import AppText from "../../../components/AppText";
@@ -10,13 +10,10 @@ import defaultStyles from "../../../constants/defaultStyles";
 const Page1 = ({ navigation }) => {
   return (
     <Screen>
-      <Header />
       <ScrollView>
         <View
           style={[defaultStyles.center, { flex: 1, flexDirection: "column" }]}
         >
-          {/* <View style={styles.container}>
-            <View style={styles.baseText}> */}
               <AppText
                 style={[
                   defaultStyles.headline,
@@ -47,9 +44,6 @@ const Page1 = ({ navigation }) => {
                 onPress={() => navigation.navigate("A Protection")}
               ></AppButton>
             </View>
-            {/* <Text>
-              * from "Personal Finances for Self-Reliance", pages 57 and 58
-            </Text> */}
             <View style={defaultStyles.center}>
               <Text
                 style={[defaultStyles.link, {marginBottom:70}]}
@@ -62,8 +56,6 @@ const Page1 = ({ navigation }) => {
                 Additional Resources
               </Text>
             </View>
-          {/* </View>
-        </View> */}
       </ScrollView>
     </Screen>
   );

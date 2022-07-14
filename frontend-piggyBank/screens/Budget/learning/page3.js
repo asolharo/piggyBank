@@ -6,6 +6,7 @@ import {
   Button,
   Image,
   ScrollView,
+  Linking,
 } from "react-native";
 import { assets, SIZES } from "../../../constants";
 
@@ -18,21 +19,16 @@ import defaultStyles from "../../../constants/defaultStyles";
 const Page3 = ({ navigation }) => {
   return (
     <Screen>
-      <Header />
       <ScrollView>
         <View
           style={[defaultStyles.center, { flex: 1, flexDirection: "column" }]}
         >
-          {/* <View style={styles.container}>
-            <View style={styles.baseText}> */}
                       <AppText
             style={[
               defaultStyles.headline,
               { marginBottom: 20, marginTop: 20 },
             ]}
           >Expenses</AppText>
-            {/* </View> */}
-            {/* <View style={styles.baseText}> */}
               <Text style={defaultStyles.text_on_dark}>
                 The next step to creating a budget is to classify and estimate
                 your expenses.
@@ -46,15 +42,11 @@ const Page3 = ({ navigation }) => {
                 source={assets.expenses}
                 style={{ resizeMode: "contain", width: 300, height: 200, }}
               />
-            {/* </View> */}
             <AppButton
               title="Next"
               color="#f194ff"
               onPress={() => navigation.navigate("Fixed Expenses")}
             />
-            {/* <Text>
-              * from "Personal Finances for Self-Reliance", pages 57 and 58
-            </Text> */}
             <View style={styles.baseText}>
               <Text
                 style={[defaultStyles.link, {marginBottom:70}]}
@@ -68,7 +60,6 @@ const Page3 = ({ navigation }) => {
               </Text>
             </View>
           </View>
-        {/* </View> */}
       </ScrollView>
     </Screen>
   );

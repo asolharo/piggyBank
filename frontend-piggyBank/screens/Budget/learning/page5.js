@@ -1,24 +1,20 @@
 import React from "react";
-import { StyleSheet, View, Text, Button, Image, ScrollView } from "react-native";
+import { StyleSheet, View, Text, Button, Image, ScrollView, Linking } from "react-native";
 import { assets, SIZES } from "../../../constants";
 
 import AppButton from "../../../components/AppButton";
 import AppText from "../../../components/AppText";
 import Screen from "../../../components/Screen";
-import Header from "../../../components/Header";
 import defaultStyles from "../../../constants/defaultStyles";
 
 
 const Page5 = ({navigation}) => {
   return (
     <Screen>
-    <Header />
     <ScrollView>
       <View
         style={[defaultStyles.center, { flex: 1, flexDirection: "column" }]}
       >
-    {/* <View style={styles.container}>
-      <View style={styles.baseText}> */}
           <AppText
             style={[
               defaultStyles.headline,
@@ -58,8 +54,6 @@ When it comes to budgeting, the most important variable ex- penses are the ones 
         onPress={() => navigation.navigate('Example')}
         />
         </View>
-
-      {/* <Text>* from "Personal Finances for Self-Reliance", page 59</Text> */}
       <View style={[defaultStyles.center, { padding: 10 }]}>
         <Text 
         style={[defaultStyles.link, {marginBottom:90}]}
@@ -67,8 +61,6 @@ When it comes to budgeting, the most important variable ex- penses are the ones 
           Go to manual
         </Text>
       </View>
-    {/* </View>
-    </View> */}
     </ScrollView>
     </Screen>
   );

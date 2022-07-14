@@ -7,6 +7,7 @@ import {
   Image,
   Pressable,
   ScrollView,
+  Linking,
 } from "react-native";
 import { assets, SIZES } from "../../../constants";
 
@@ -19,13 +20,10 @@ import defaultStyles from "../../../constants/defaultStyles";
 const Page6 = ({ navigation }) => {
   return (
     <Screen>
-      <Header />
       <ScrollView>
         <View
           style={[defaultStyles.center, { flex: 1, flexDirection: "column" }]}
         >
-          {/* <View style={styles.container}>
-      <View style={styles.baseText}> */}
           <AppText
             style={[
               defaultStyles.headline,
@@ -34,8 +32,6 @@ const Page6 = ({ navigation }) => {
           >
             Example Budget
           </AppText>
-          {/* </View> */}
-          {/* <View style={styles.baseText}> */}
           <Text style={defaultStyles.text_on_dark}>
             On paper, make a table by putting your income on the first row, then
             your fixed expenses followed by your variable expenses.
@@ -53,8 +49,6 @@ const Page6 = ({ navigation }) => {
             source={assets.example}
             style={{ resizeMode: "contain", width: 300, height: 200 }}
           />
-          {/* </View> */}
-          {/* <Text>* from "Personal Finances for Self-Reliance", page 59</Text> */}
 
           <View>
             <AppButton
@@ -79,7 +73,6 @@ const Page6 = ({ navigation }) => {
             </Text>
           </View>
         </View>
-        {/* </View> */}
       </ScrollView>
     </Screen>
   );

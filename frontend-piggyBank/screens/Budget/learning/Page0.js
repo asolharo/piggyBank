@@ -1,4 +1,4 @@
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, Linking } from "react-native";
 import React from "react";
 
 import AppButton from "../../../components/AppButton";
@@ -10,7 +10,6 @@ import defaultStyles from "../../../constants/defaultStyles";
 const Page0 = ({ navigation }) => {
   return (
     <Screen>
-      <Header />
       <ScrollView>
         <View
           style={[defaultStyles.center, { flex: 1, flexDirection: "column" }]}

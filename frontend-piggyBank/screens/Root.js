@@ -26,6 +26,7 @@ import Page4 from './Budget/learning/Page4';
 import Page5 from './Budget/learning/Page5';
 import Page6 from './Budget/learning/Page6';
 
+
 const Root = ({ route }) => {
   const userId = route.params.userId
   const token = route.params.token

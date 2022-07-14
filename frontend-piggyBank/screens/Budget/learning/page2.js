@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text, Button, ScrollView } from "react-native";
+import { StyleSheet, View, Text, Button, ScrollView, Linking } from "react-native";
 
 import AppButton from "../../../components/AppButton";
 import AppText from "../../../components/AppText";
@@ -10,21 +10,16 @@ import defaultStyles from "../../../constants/defaultStyles";
 const Page2 = ({ navigation }) => {
   return (
     <Screen>
-      <Header />
       <ScrollView>
         <View
           style={[defaultStyles.center, { flex: 1, flexDirection: "column" }]}
         >
-          {/* <View style={styles.container}> */}
-            {/* <View style={styles.baseText}> */}
             <AppText
             style={[
               defaultStyles.headline,
               { marginBottom: 20, marginTop: 20 },
             ]}
           >First Step</AppText>
-            {/* </View> */}
-            {/* <View style={styles.baseText}> */}
               <Text style={defaultStyles.text_on_dark}>
                 Budgeting can also help you to protect your family from hardship
                 as you use it to allocate money for building an emergency fund,
@@ -46,9 +41,6 @@ const Page2 = ({ navigation }) => {
               onPress={() => navigation.navigate("Expenses")}
               />
               </View>
-            {/* <Text>
-              * from "Personal Finances for Self-Reliance", pages 57 and 58
-            </Text> */}
             <View style={defaultStyles.center}>
               <Text
                 style={[defaultStyles.link, {marginBottom:70}]}
@@ -61,8 +53,6 @@ const Page2 = ({ navigation }) => {
                 Need more Practice?
               </Text>
             </View>
-          {/* </View> */}
-        {/* </View> */}
       </ScrollView>
     </Screen>
   );

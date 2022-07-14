@@ -19,12 +19,12 @@ import { useIsFocused } from '@react-navigation/native';
 import { View } from 'react-native';
 import Header from '../components/Header';
 import Page0 from './Budget/learning/Page0';
-import Page1 from './Budget/learning/page1';
-import Page2 from './Budget/learning/page2';
-import Page3 from './Budget/learning/page3';
-import Page4 from './Budget/learning/page4';
-import Page5 from './Budget/learning/page5';
-import Page6 from './Budget/learning/page6';
+import Page1 from './Budget/learning/Page1';
+import Page2 from './Budget/learning/Page2';
+import Page3 from './Budget/learning/Page3';
+import Page4 from './Budget/learning/Page4';
+import Page5 from './Budget/learning/Page5';
+import Page6 from './Budget/learning/Page6';
 
 
 const Root = ({ route }) => {

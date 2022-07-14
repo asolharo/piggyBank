@@ -25,11 +25,13 @@ Piggy Bank is the app that will teach you to manage a budget with an easy and in
   <img src="/frontend-piggyBank/assets/screenshots/saving1.png" width="100" />
   <img src="/frontend-piggyBank/assets/screenshots/saving2.png" width="100" /> 
 </p>
-<p><h3>Investment</h3>
+<h3>Investment</h3>
+<p float="left">
   <img src="/frontend-piggyBank/assets/screenshots/int1.png" width="100" />
   <img src="/frontend-piggyBank/assets/screenshots/int2.png" width="100" />
 </p>
-<p><h3>Debt Calculator</h3>
+<h3>Debt Calculator</h3>
+<p float="left">
   <img src="/frontend-piggyBank/assets/screenshots/debtCalculator1.png" width="100" />
   <img src="/frontend-piggyBank/assets/screenshots/debtCalculator2.png" width="100" />
 </p>

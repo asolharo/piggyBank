@@ -20,7 +20,8 @@ Piggy Bank is the app that will teach you to manage a budget with an easy and in
   <img src="/frontend-piggyBank/assets/screenshots/create.png" width="100" />
 </p>
 <h2>Forecasting section</h2>
-<p float="left"><h3>Savings</h3>
+<h3>Savings</h3>
+<p float="left">
   <img src="/frontend-piggyBank/assets/screenshots/saving1.png" width="100" />
   <img src="/frontend-piggyBank/assets/screenshots/saving2.png" width="100" /> 
 </p>

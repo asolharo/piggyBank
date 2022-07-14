@@ -13,7 +13,11 @@ Piggy Bank is the app that will teach you to manage a budget with an easy and in
 <h2>Dashboard</h2>
 <img src="/frontend-piggyBank/assets/screenshots/dashboard.png" width="100">
 <h2>Budget Learning Path</h2>
-<img src="/frontend-piggyBank/assets/screenshots/budget1.png" width="100"> <img src="/frontend-piggyBank/assets/screenshots/budget2.png" width="100"> <img src="/frontend-piggyBank/assets/screenshots/budget3.png" width="100">
+<p float="left">
+  <img src="/frontend-piggyBank/assets/screenshots/budget1.png" width="100" />
+  <img src="/frontend-piggyBank/assets/screenshots/budget2.png" width="100" /> 
+  <img src="/frontend-piggyBank/assets/screenshots/budget3.png" width="100" />
+</p>
 
 [Software Demo Video](https://youtu.be/YcB7ZZliagA)
 

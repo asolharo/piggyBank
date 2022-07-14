@@ -128,7 +128,7 @@ const LoginScreen = () => {
           validationSchema={validationSchema}
         >
           {({ handleSubmit }) => (
-            <View>
+            <View style={{'alignItems': 'center'}}>
               <FormikTextInput name="email" placeholder="Email" placeholderTextColor= "#aaa" autoCapitalize='none'/>
               <FormikTextInput
                 name="password"

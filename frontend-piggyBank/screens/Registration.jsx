@@ -4,6 +4,7 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import FormikTextInput from '../components/FormikTextInput';
 import { useNavigation } from '@react-navigation/native';
+import defaultStyles from '../constants/defaultStyles';
 
 
 const Registration = () => {
@@ -49,7 +50,7 @@ const Registration = () => {
   };
   
   return (
-    <View style={styles.container}>
+    <View style={{backgroundColor: defaultStyles.dark}}>
       <Text style={styles.title}>Sign up</Text>
       <Text style={styles.mb30}>Create a new account</Text>
 

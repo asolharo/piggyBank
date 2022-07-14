@@ -5,7 +5,8 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import defaultStyles from "../constants/defaultStyles";
 import Screen from "../components/Screen";
-import FormikTextInput from "../components/FormikTextInput";
+import FormikTextInputAccount from "../components/FormikTextInputAccount";
+import MessageAccount from "../components/MessageAccount";
 
 const Account = ({ route }) => {
   const baseUrl = "http://localhost:3000";
@@ -35,10 +36,15 @@ const Account = ({ route }) => {
       });
       const status = await res.text();
       console.log(status);
-    } catch (err) {
-      console.log("error");
       setMessage('Account balance has been correctly reset')
       setMessageType('success')
+      setTimeout(() => {
+        setMessage(null)
+      }, 5000);
+    } catch (err) {
+      console.log("error");
+      setMessage('An error occurred. Please try again.')
+      setMessageType('error')
       setTimeout(() => {
         setMessage(null)
       }, 5000);
@@ -125,6 +131,11 @@ const Account = ({ route }) => {
       <ScrollView>
         <View style={styles.container}>
           <View>
+          {
+            message != null
+            ? <MessageAccount text={message} type={messageType} />
+            : <View />
+          }
             <Text style={defaultStyles.text_on_dark}>
               Name: {userInfo.fullname}
             </Text>
@@ -142,7 +153,7 @@ const Account = ({ route }) => {
             >
               {({ handleSubmit }) => (
                 <View>
-                  <FormikTextInput
+                  <FormikTextInputAccount
                     name="newBalance"
                     placeholder="$1,500"
                     placeholderTextColor="#aaa"

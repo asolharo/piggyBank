@@ -1,17 +1,3 @@
-import { NavigationContainer } from '@react-navigation/native';
-import React from 'react';
-// import ForecastingScreen from './screens/Forecasting_Paths/ForecastingScreen';
-import SavingsCalcScreen from './screens/Forecasting_Paths/SavingsCalcScreen';
-
-export default function App() {
-  return (
-    <NavigationContainer>
-<SavingsCalcScreen/>
-    </NavigationContainer>
-  );
-}
-
-
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Login from './screens/Login';
@@ -20,6 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS } from './constants';
 import { useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import OnBoardingScreen from './screens/OnBoardingScreen'
 
 import Registration from './screens/Registration';
 
@@ -59,7 +46,7 @@ const App = () => {
         </SafeAreaView>
           <NavigationContainer>
             <Stack.Navigator
-              initialRouteName="Login"
+              initialRouteName="OnBoarding"
               screenOptions={{
                 headerShown: false
               }}>
@@ -74,6 +61,10 @@ const App = () => {
               <Stack.Screen
                 name='Registration'
                 component={Registration}
+              />
+              <Stack.Screen 
+                name='OnBoarding'
+                component={OnBoardingScreen}
               />
               
             </Stack.Navigator>

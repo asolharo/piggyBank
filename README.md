@@ -44,7 +44,9 @@ Piggy Bank is the app that will teach you to manage a budget with an easy and in
       </td>
    </tr>
    <tr>
+      <td>
          <h2>Forecasting section</h2>
+      </td>
    </tr>
    <tr>
       <td>

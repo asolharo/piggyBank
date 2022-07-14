@@ -23,35 +23,53 @@ Piggy Bank is the app that will teach you to manage a budget with an easy and in
       <h2>Dashboard</h2>
       <img src="/frontend-piggyBank/assets/screenshots/dashboard.png" width="100">
     </td>
+     <td>
+      <h2>Account screen</h2>
+      <img src="/frontend-piggyBank/assets/screenshots/account.png" width="100">
+     </td>
   </tr>
-  
-  
-<h2>Budget Learning Path</h2>
-<p float="left">
-  <img src="/frontend-piggyBank/assets/screenshots/budget1.png" width="100" />
-  <img src="/frontend-piggyBank/assets/screenshots/budget2.png" width="100" /> 
-  <img src="/frontend-piggyBank/assets/screenshots/budget3.png" width="100" />
-  <img src="/frontend-piggyBank/assets/screenshots/create.png" width="100" />
-</p>
-<h2>Forecasting section</h2>
-<h3>Savings</h3>
-<p float="left">
-  <img src="/frontend-piggyBank/assets/screenshots/saving1.png" width="100" />
-  <img src="/frontend-piggyBank/assets/screenshots/saving2.png" width="100" /> 
-</p>
-<h3>Investment</h3>
-<p float="left">
-  <img src="/frontend-piggyBank/assets/screenshots/int1.png" width="100" />
-  <img src="/frontend-piggyBank/assets/screenshots/int2.png" width="100" />
-</p>
-<h3>Debt Calculator</h3>
-<p float="left">
-  <img src="/frontend-piggyBank/assets/screenshots/debtCalculator1.png" width="100" />
-  <img src="/frontend-piggyBank/assets/screenshots/debtCalculator2.png" width="100" />
-</p>
-<h2>Account screen</h2>
-<img src="/frontend-piggyBank/assets/screenshots/account.png" width="100">
-
+   <tr>
+      <td>
+         <h2>Budget Learning Path</h2>
+         <p float="left">
+            <img src="/frontend-piggyBank/assets/screenshots/budget1.png" width="100" />
+            <img src="/frontend-piggyBank/assets/screenshots/budget2.png" width="100" /> 
+         </p>
+      </td>
+      <td>
+         <p float-"left">
+            <img src="/frontend-piggyBank/assets/screenshots/budget3.png" width="100" />
+            <img src="/frontend-piggyBank/assets/screenshots/create.png" width="100" />
+         </p>
+      </td>
+   </tr>
+   <tr>
+         <h2>Forecasting section</h2>
+   </tr>
+   <tr>
+      <td>
+         <h3>Savings</h3>
+         <p float="left">
+            <img src="/frontend-piggyBank/assets/screenshots/saving1.png" width="100" />
+            <img src="/frontend-piggyBank/assets/screenshots/saving2.png" width="100" /> 
+         </p>
+      </td>
+      <td>
+         <h3>Investment</h3>
+         <p float="left">
+            <img src="/frontend-piggyBank/assets/screenshots/int1.png" width="100" />
+            <img src="/frontend-piggyBank/assets/screenshots/int2.png" width="100" />
+         </p>
+      </td>
+   <tr>
+      <td>
+         <h3>Debt Calculator</h3>
+         <p float="left">
+            <img src="/frontend-piggyBank/assets/screenshots/debtCalculator1.png" width="100" />
+            <img src="/frontend-piggyBank/assets/screenshots/debtCalculator2.png" width="100" />
+        </p>
+      </td>
+   </tr>
 </table>
 
 [Software Demo Video](https://youtu.be/YcB7ZZliagA)

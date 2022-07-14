@@ -16,7 +16,7 @@ const BottomOnBoard = ({ slides, currSlideIndex, nextSlide, skip }) => {
   return (
     <View
       style={{
-        height: height * 0.25,
+        height: height * 0.20,
         justifyContent: "space-between",
         paddingHorizontal: 20,
       }}

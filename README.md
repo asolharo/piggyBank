@@ -6,8 +6,8 @@ Educational software for high school kids to learn good financial habits.
 
 Piggy Bank is the app that will teach you to manage a budget with an easy and intuitive interface. You are able to setup an account with a base amount to start your budget. You will also find clear definitions for each part of a budget, some examples and also simulation of investments. This is What you'll see:
 
+<h4>Onboarding screens</h4>
 <img src="/frontend-piggyBank/assets/screenshots/onboarding.png" width="200">
-![alt-text](/frontend-piggyBank/assets/screenshots/login.png "Login" )
 
 
 [Software Demo Video](https://youtu.be/YcB7ZZliagA)

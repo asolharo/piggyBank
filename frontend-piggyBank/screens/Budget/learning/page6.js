@@ -1,38 +1,89 @@
 import React from "react";
-import { StyleSheet, View, Text, Button, Image, Pressable } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  Button,
+  Image,
+  Pressable,
+  ScrollView,
+} from "react-native";
 import { assets, SIZES } from "../../../constants";
 
+import AppButton from "../../../components/AppButton";
+import AppText from "../../../components/AppText";
+import Screen from "../../../components/Screen";
+import Header from "../../../components/Header";
+import defaultStyles from "../../../constants/defaultStyles";
 
-const Page6 = ({navigation}) => {
+const Page6 = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.baseText}>
-        <Text style={styles.titleText}>Example Budget</Text>
-      </View>
-      <View style={styles.baseText}>
-        <Text>On a table put your income on the first row, then your fixed expenses followed with your variable expenses. You can have 4 columns:
-        </Text>
-        <Text>Concept  /  Incomes  /  Expenses  /  Balance
-</Text>
-        <Text>This is an example of a basic budget</Text>
-        <Image source={assets.example} style={{ resizeMode: "contain", width:300, height: 200}} />
-      </View>
-      <Text>* from "Personal Finances for Self-Reliance", page 59</Text>
-      <View style={styles.baseText}>
-        <Text style={{color: 'blue'}}
-              onPress={() => Linking.openURL('https://www.churchofjesuschrist.org/manual/personal-finances-for-self-reliance?lang=eng')}>
-          Go to manual
-        </Text>
-      </View>
-      <Pressable onPress={() => navigation.navigate("Budget")}>
-            <Text>Go back</Text>
-      </Pressable>
-      <Pressable onPress={() => navigation.navigate("Create Budget")}>
-            <Text>Creat Your Budget</Text>
-      </Pressable>
-    </View>
+    <Screen>
+      <Header />
+      <ScrollView>
+        <View
+          style={[defaultStyles.center, { flex: 1, flexDirection: "column" }]}
+        >
+          {/* <View style={styles.container}>
+      <View style={styles.baseText}> */}
+          <AppText
+            style={[
+              defaultStyles.headline,
+              { marginBottom: 20, marginTop: 20 },
+            ]}
+          >
+            Example Budget
+          </AppText>
+          {/* </View> */}
+          {/* <View style={styles.baseText}> */}
+          <Text style={defaultStyles.text_on_dark}>
+            On paper, make a table by putting your income on the first row, then
+            your fixed expenses followed by your variable expenses.
+          </Text>
+          <Text style={defaultStyles.text_on_dark}>
+            You will have 4 columns:
+          </Text>
+          <Text style={[defaultStyles.subHeadline, { textAlign: "center" }]}>
+            Concept · Income · Expenses · Balance
+          </Text>
+          <Text style={defaultStyles.text_on_dark}>
+            This is an example of a basic budget:
+          </Text>
+          <Image
+            source={assets.example}
+            style={{ resizeMode: "contain", width: 300, height: 200 }}
+          />
+          {/* </View> */}
+          {/* <Text>* from "Personal Finances for Self-Reliance", page 59</Text> */}
+
+          <View>
+            <AppButton
+              title=" Go Back"
+              onPress={() => navigation.navigate("Budget")}
+            ></AppButton>
+            <AppButton
+              title=" Create a Budget"
+              onPress={() => navigation.navigate("Create Budget")}
+            ></AppButton>
+          </View>
+          <View style={[defaultStyles.center, { padding: 10 }]}>
+            <Text
+              style={[defaultStyles.link, { marginBottom: 90 }]}
+              onPress={() =>
+                Linking.openURL(
+                  "https://www.churchofjesuschrist.org/manual/personal-finances-for-self-reliance?lang=eng"
+                )
+              }
+            >
+              Checkout the Finance Manual
+            </Text>
+          </View>
+        </View>
+        {/* </View> */}
+      </ScrollView>
+    </Screen>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -41,16 +92,14 @@ const styles = StyleSheet.create({
   },
   baseText: {
     fontFamily: "Cochin",
-    marginTop:10,
-    padding:30,
-    textAlign: 'justify'
+    marginTop: 10,
+    padding: 30,
+    textAlign: "justify",
   },
   titleText: {
     fontSize: 20,
-    fontWeight: "bold"
-  }
-
+    fontWeight: "bold",
+  },
 });
-
 
 export default Page6;

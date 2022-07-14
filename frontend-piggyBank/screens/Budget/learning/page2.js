@@ -1,40 +1,72 @@
 import React from "react";
-import { StyleSheet, View, Text, Button } from "react-native";
+import { StyleSheet, View, Text, Button, ScrollView } from "react-native";
 
-const Page2 = ({navigation}) => {
+import AppButton from "../../../components/AppButton";
+import AppText from "../../../components/AppText";
+import Screen from "../../../components/Screen";
+import Header from "../../../components/Header";
+import defaultStyles from "../../../constants/defaultStyles";
+
+const Page2 = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.baseText}>
-        <Text style={styles.titleText}>First Step</Text>
-      </View>
-      <View style={styles.baseText}>
-        <Text>Budgeting can also help you to protect your family from hardship as you use it to allocate money for building an emergency fund, paying down debt, and saving for future expenses.
-        </Text>
-        <Text>
-        To build a budget, start with your income.
-        </Text>
+    <Screen>
+      <Header />
+      <ScrollView>
+        <View
+          style={[defaultStyles.center, { flex: 1, flexDirection: "column" }]}
+        >
+          {/* <View style={styles.container}> */}
+            {/* <View style={styles.baseText}> */}
+            <AppText
+            style={[
+              defaultStyles.headline,
+              { marginBottom: 20, marginTop: 20 },
+            ]}
+          >First Step</AppText>
+            {/* </View> */}
+            {/* <View style={styles.baseText}> */}
+              <Text style={defaultStyles.text_on_dark}>
+                Budgeting can also help you to protect your family from hardship
+                as you use it to allocate money for building an emergency fund,
+                paying down debt, and saving for future expenses.
+              </Text>
+              <Text style={[defaultStyles.subHeadline, {textAlign: 'center'}]}>
+                To build a budget, start with your income.</Text>
 
-        <Text>
-        Your income is the base amount to consider. The best practice is to keep expenses under your total income.
-        </Text>
+                <Text style={defaultStyles.text_on_dark}>
+                Your income is the base amount to consider. The best practice is
+                to keep expenses under your total income.
+              </Text>
+            </View>
+            <View style={defaultStyles.center}>
 
-      </View>
-      <Button
-        title="Next"
-        color="#f194ff"
-        onPress={() => navigation.navigate('Expenses')}
-      />
-      <Text>* from "Personal Finances for Self-Reliance", pages 57 and 58</Text>
-      <View style={styles.baseText}>
-        <Text style={{color: 'blue'}}
-              onPress={() => Linking.openURL('https://www.churchofjesuschrist.org/manual/personal-finances-for-self-reliance?lang=eng')}>
-          Go to manual
-        </Text>
-      </View>
-
-    </View>
+            <AppButton
+              title="Next"
+              color="#f194ff"
+              onPress={() => navigation.navigate("Expenses")}
+              />
+              </View>
+            {/* <Text>
+              * from "Personal Finances for Self-Reliance", pages 57 and 58
+            </Text> */}
+            <View style={defaultStyles.center}>
+              <Text
+                style={[defaultStyles.link, {marginBottom:70}]}
+                onPress={() =>
+                  Linking.openURL(
+                    "https://www.churchofjesuschrist.org/manual/personal-finances-for-self-reliance?lang=eng"
+                  )
+                }
+              >
+                Need more Practice?
+              </Text>
+            </View>
+          {/* </View> */}
+        {/* </View> */}
+      </ScrollView>
+    </Screen>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -43,16 +75,14 @@ const styles = StyleSheet.create({
   },
   baseText: {
     fontFamily: "Cochin",
-    marginTop:10,
-    padding:30,
-    textAlign: 'justify'
+    marginTop: 10,
+    padding: 30,
+    textAlign: "justify",
   },
   titleText: {
     fontSize: 20,
-    fontWeight: "bold"
-  }
-
+    fontWeight: "bold",
+  },
 });
-
 
 export default Page2;

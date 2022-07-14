@@ -8,6 +8,7 @@ import {
 import React, { useState } from "react";
 import { COLORS, SIZES } from "../constants";
 import { useNavigation } from '@react-navigation/native';
+import defaultStyles from "../constants/defaultStyles";
 
 const BottomOnBoard = ({ slides, currSlideIndex, nextSlide, skip }) => {
   const { width, height } = Dimensions.get("window");
@@ -34,7 +35,7 @@ const BottomOnBoard = ({ slides, currSlideIndex, nextSlide, skip }) => {
               styles.indicator,
               currSlideIndex === index && {
                 width: 25,
-              },
+              },{backgroundColor: defaultStyles.colors.primary,}
             ]}
           />
         ))}
@@ -42,7 +43,7 @@ const BottomOnBoard = ({ slides, currSlideIndex, nextSlide, skip }) => {
       <View style={{ marginBottom: 40 }}>
         {currSlideIndex === slides.length - 1 ? (
           <View style={{ height: 50 }}>
-            <TouchableOpacity style={[styles.btn]}>
+            <TouchableOpacity style={[styles.btn, {backgroundColor: defaultStyles.colors.accent,}]}>
               <Text
                 style={{
                   color: COLORS.white,
@@ -64,14 +65,14 @@ const BottomOnBoard = ({ slides, currSlideIndex, nextSlide, skip }) => {
                   {
                     backgroundColor: "transparent",
                     borderWidth: 1,
-                    borderColor: COLORS.primary,
+                    borderColor: defaultStyles.colors.primary,
                   },
                 ]}
                 onPress={skip}
               >
                 <Text
                   style={{
-                    color: COLORS.primary,
+                    color: defaultStyles.colors.primary,
                     fontWeight: "bold",
                     fontSize: SIZES.medium,
                   }}
@@ -80,7 +81,7 @@ const BottomOnBoard = ({ slides, currSlideIndex, nextSlide, skip }) => {
                 </Text>
               </TouchableOpacity>
               <View style={{ width: 15 }} />
-              <TouchableOpacity style={[styles.btn]} onPress={nextSlide}>
+              <TouchableOpacity style={[styles.btn, {backgroundColor: defaultStyles.colors.primary,}]} onPress={nextSlide}>
                 <Text
                   style={{
                     color: COLORS.white,

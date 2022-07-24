@@ -1,0 +1,79 @@
+{
+    "user": {
+        "firstName": "Ashley",
+        "lastName": "Zufelt",
+        "email": "me@email.com",
+        "username": "some-name-1",
+        "pass": "hashed password",
+        "account": {
+        "acct-activity" : {
+            "starting_balance": "875",
+            "activity-list": {
+                "expenses": {
+                  "001": {
+                    "item_name": "rent",
+                    "amount": "200"
+                  },
+                  "002": {
+                    "item_name": "groceries",
+                    "amount": "100"
+                  }
+                },
+                "despoits": {
+                  "001": {
+                    "item_name": "paycheck",
+                    "amount": "400"
+                  },
+                  "002": {
+                    "item_name": "refund",
+                    "amount": "15"
+                  }
+                }
+            },
+             "budget": {
+               "to_be_budgeted": "875", 
+                "budget_items": {
+                  "001": {
+                    "item_name": "rent",
+                    "amount": "200",
+                    "category": "housing"
+                  },
+                  "002": {
+                    "item_name": "groceries",
+                    "amount": "100",
+                     "category": "living expenses"
+                  },
+                   "003": {
+                    "item_name": "car payment",
+                    "amount": "50",
+                    "category": "living expenses"
+                  }
+                }
+            }
+        }
+    }
+},
+"forecast": {
+    "invest_calc": {
+        "inital_investment": "100",
+        "interest_rate": ".03",
+        "investment_term": "60" 
+    },
+    "debt_payoff_calc": {
+        "remaining_balance": "900",
+        "interest_rate": ".15",
+        "current_payment": "65",
+        "payment_schedule": "monthly"
+    }
+},
+"resources": {
+    "img": "link to file",
+    "tips": {
+        "001": "This is a helpful tip about budgeting",
+        "002": "We can put something longer in and then it can be updated at any point just from this one spot!",
+        "003": "We can have different sections on the one view page, or we could use this list as a rotating resource  of 'tip of the day'"
+    },
+    "link": "link to additional resources"
+}
+}
+

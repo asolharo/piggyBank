@@ -1,41 +1,110 @@
 # Piggy Bank
+
 Educational software for high school kids to learn good financial habits.
 
 # Overview
-{Provide a description of your team project.  Describe how to use the software.}
+
+Piggy Bank is the app that will teach you to manage a budget with an easy and intuitive interface. You are able to setup an account with a base amount to start your budget. You will also find clear definitions for each part of a budget, some examples and also simulation of investments. This is What you'll see:
 
 
+<table border="0">
+   <tr>
+      <td>
+        <h2>Onboarding screens</h2>
+        <img src="/frontend-piggyBank/assets/screenshots/onboarding.png" width="100">
+     </td>
+      <td>
+        <h2>Login</h2>
+        <img src="/frontend-piggyBank/assets/screenshots/login.png" width="100">
+     </td>   
+   </tr>
+  <tr>
+    <td>
+      <h2>Dashboard</h2>
+      <img src="/frontend-piggyBank/assets/screenshots/dashboard.png" width="100">
+    </td>
+     <td>
+      <h2>Account screen</h2>
+      <img src="/frontend-piggyBank/assets/screenshots/account.png" width="100">
+     </td>
+  </tr>
+   <tr>
+      <td>
+         <h2>Budget Learning Path</h2>
+         <p float="left">
+            <img src="/frontend-piggyBank/assets/screenshots/budget1.png" width="100" />
+            <img src="/frontend-piggyBank/assets/screenshots/budget2.png" width="100" /> 
+         </p>
+      </td>
+      <td>
+         <p float-"left">
+            <img src="/frontend-piggyBank/assets/screenshots/budget3.png" width="100" />
+            <img src="/frontend-piggyBank/assets/screenshots/create.png" width="100" />
+         </p>
+      </td>
+   </tr>
+   <tr>
+      <td>
+         <h2>Forecasting section</h2>
+      </td>
+   </tr>
+   <tr>
+      <td>
+         <h3>Savings</h3>
+         <p float="left">
+            <img src="/frontend-piggyBank/assets/screenshots/saving1.png" width="100" />
+            <img src="/frontend-piggyBank/assets/screenshots/saving2.png" width="100" /> 
+         </p>
+      </td>
+      <td>
+         <h3>Investment</h3>
+         <p float="left">
+            <img src="/frontend-piggyBank/assets/screenshots/int1.png" width="100" />
+            <img src="/frontend-piggyBank/assets/screenshots/int2.png" width="100" />
+         </p>
+      </td>
+   <tr>
+      <td>
+         <h3>Debt Calculator</h3>
+         <p float="left">
+            <img src="/frontend-piggyBank/assets/screenshots/debtCalculator1.png" width="100" />
+            <img src="/frontend-piggyBank/assets/screenshots/debtCalculator2.png" width="100" />
+        </p>
+      </td>
+   </tr>
+</table>
 
-{If this is an online class, then provide a link to your YouTube demonstration.  It should be a 4-5 minute demo of the software running and a walkthrough of the code.}
-
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/YcB7ZZliagA)
 
 # Development Environment
-* Visual Studio Code
-* XCode iOS simulator
-* Android Studio Simulator
-{Describe the tools that you used to develop the software}
 
-{Describe the programming language that you used and any libraries.}
-* JavaScript
-* React Native
-* Node.js
-* MongoDB
+- Visual Studio Code
+- XCode iOS simulator
+- Android Studio Simulator
+
+- JavaScript
+- React Native
+- Node.js
+- MongoDB
+- expo.dev
 
 # Collaborators
-* Federico Pregnolato
-* Ashley Zufelt
-* Angel Solano
+
+- Federico Pregnolato
+- Ashley Zufelt
+- Angel Solano
 
 # Useful Websites
 
-{Make a list of websites that you found helpful in this project}
-* [Web Site Name](http://url.link.goes.here)
-* [Web Site Name](http://url.link.goes.here)
+- [Moving between screens](https://reactnavigation.org/docs/navigating/)
+- [How to implement tables in React Native (2022)](https://www.kindacode.com/article/how-to-implement-tables-in-react-native/)
+- [Button](https://reactnative.dev/docs/button)
 
 # Future Work
 
-{Make a list of things that you need to fix, improve, and add in the future.}
-* Item 1
-* Item 2
-* Item 3
+- Save budget in the database
+- Add pagination to Budget Path
+- Update Budget tables to be code/ not png
+- Select Avatar at sign in or in the Account screen
+- Change user name and email in the Account screen
+- Financial forecasting graphs
